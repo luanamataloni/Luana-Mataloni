@@ -1,0 +1,44 @@
+<div class="contenedor-padre flex">
+
+    <div class="contenedor-izq contenedores-banner col-3">
+        <img class="img-logo" src="https://everythingfenix.com/wp-content/uploads/2018/03/everything-fenix-logo-on-black.png">
+    </div>
+    <div class="contenedor-mid contenedores-banner col-5">
+        <include src="componentes-menu/item-medio.html"></include>
+    </div>
+    <div class="contenedor-der contenedores-banner col-4">
+        <include src="./componentes-menu/login.html"></include>
+    </div>
+</div>
+
+<include src="./componentes-menu/cartel-login.html"></include>
+
+
+<style>
+
+    .contenedor-padre
+    {
+        height: 70px;
+        background-color: red;
+
+    }
+    .contenedor-izq
+    {
+        height: 100%;
+        background-color: green;
+    }
+    .contenedor-mid
+    {
+        height: 100%;
+        background-color: blue;
+    }
+    .contenedor-der
+    {
+        height: 100%;
+        background-color: rgb(255, 204, 0);
+    }
+
+    .img-logo{
+        height: 100%;
+    }
+</style>

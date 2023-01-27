@@ -1,4 +1,4 @@
-<div class="contenedor-listado-casas flex">
+<div class="contenedor-listado-casas flex">lll
 
     
     <div class="casa" ng-repeat="casaRepetir in coleccionCasas">
@@ -16,11 +16,16 @@
             <div class="boton-padre flex">
 
                 <div class=" hijo1 col-6 flex-center">
-                    <button class="button">{{"$" + casaRepetir.precio}}</button>
+                    <button class="button flex-center">{{"$" + casaRepetir.precio}}</button>
                 </div>
 
-                <div class="hijo2 col-6">
-                    <button class="button-view ">{{casaRepetir.view}}</button>
+                <div class="hijo2 col-6 flex-center">
+                    <button class="button-view ">
+                        {{casaRepetir.view}}
+                        <i class="fa-solid fa-caret-down"></i>
+                    
+                        </button>
+                    
                 </div>
             </div>
         </div>
@@ -28,21 +33,50 @@
 </div>          
 
 <style>
-    
-    .button {
-        background-color: #0609c5;
+
+    .button-view {
+        background-color: #6c5ce7;
         border: none;
-        color: white;
-        padding-left: 15px;
-        padding-right: 15px;
-        padding-top: 12px;
-        margin: 4px 2px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
-        font-size: 16px;
+        font-family: "Montserrat", sans-serif;
+        font-style: 500;
+        font-size: 14px;
+        color: white;
         cursor: pointer;
-        border-radius: 18px;
+        border-radius: 12px;
+        height: 40px;
+        width: 100px;
+        
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+    }
+
+    .button-view:hover {
+    box-shadow: 0 5px 12px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+    .button:hover {
+    box-shadow: 0 5px 12px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    
+    
+    
+    .button {
+        background-color: #6c5ce7;
+        border: none;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-family: "Montserrat", sans-serif;
+        font-style: 500;
+        font-size: 14px;
+        color: white;
+        cursor: pointer;
+        border-radius: 14px;
+        height: 40px;
+        width: 100px;
         
     }
     
@@ -106,31 +140,17 @@
           
     }
 
-    .boton-padre{
+    
 
-        border: solid 1px rgb(196, 196, 196);
-        
-        
-        
-    }
-
-    .hijo1{
-        border: solid 1px rgb(3, 146, 79);
-        padding-top: 0%;
-    }
-    .hijo2{
-        border: solid 1px rgb(158, 10, 10);
-        padding-top: 20%;
-        
-    }
+   
 
 </style>
 
 <script inyectado>
         $scope.coleccionCasas = [
-            {"id":1,"titulo":"casa1","precio":999,"view":"Ver Mas","ubicacion": "Bariloche","descripcion":"tu vieja","foto":"https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?cs=srgb&dl=pexels-binyamin-mellish-186077.jpg&fm=jpg"},
-            {"id":2,"titulo":"casa2","precio":89,"view":"Ver Mas","ubicacion": "Bariloche","descripcion":"tu vieja 2","foto":"https://casasinhaus.com/wp-content/uploads/2021/10/casas-prefabricadas-valencia-fachada.jpg"},
-            {"id":3,"titulo":"casa3","precio":25,"view":"Ver Mas","ubicacion": "Bariloche","descripcion":"tu vieja 32","foto":"https://www.bhhsspain.com/media/properties/151/5_201922211222330605.jpg"}
+            {"id":1,"titulo":"casa1","precio":999,"view":"Ver Mas","ubicacion": "Bariloche","descripcion":"Contrary to popular belief, Lorem Ipsum is not simply random text.","foto":"https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?cs=srgb&dl=pexels-binyamin-mellish-186077.jpg&fm=jpg"},
+            {"id":2,"titulo":"casa2","precio":89,"view":"Ver Mas","ubicacion": "Bariloche","descripcion":"Contrary to popular belief, Lorem Ipsum is not simply random text.","foto":"https://www.bbva.com/wp-content/uploads/2021/04/casas-ecolo%CC%81gicas_apertura-hogar-sostenibilidad-certificado-.jpg"},
+            {"id":3,"titulo":"casa3","precio":25,"view":"Ver Mas","ubicacion": "Bariloche","descripcion":"Contrary to popular belief, Lorem Ipsum is not simply random text.","foto":"https://www.bhhsspain.com/media/properties/151/5_201922211222330605.jpg"}
         ];
         $scope.$evalAsync();
 </script>

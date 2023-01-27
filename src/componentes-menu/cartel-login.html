@@ -1,0 +1,75 @@
+<div class="cartelito" ng-show="mostrarCartel"> 
+    <div class="form-group">
+      <label for="usr">Nombre Usuario:</label>
+      <input type="text" class="form-control" ng-model="correo">
+        <br>
+        El Email que escribiste es: 
+      {{correo}}
+    </div>
+
+    <div class="form-group">
+      <label for="pwd">Contraseña:</label>
+      <input type="password" class="form-control" ng-model="contrasena">
+      <br>
+      Tu contraseña es:
+      {{contrasena}}
+    </div>
+
+
+    <button class="btn btn-info" ng-click="guardarUsuario()" >
+        Ingresar
+    </button>
+
+    <button class="btn btn-danger" ng-click="mostrarCartelUsuario()">
+        Cancelar
+    </button>
+</div>
+
+
+<style>
+.cartelito {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    right: 20%;
+    border: solid 1px red;
+}
+</style>
+
+<script inyectado>
+    $scope.guardarUsuario=function(){
+        // alert("Estoy guardando el usuario" + " "+  $scope.correo + " " + $scope.contrasena)
+
+        $scope.cargando = false;
+        $.ajax(
+        {
+            url:"autenticarse.php",
+            data:
+            {
+                "mail":$scope.correo,
+                "clave":$scope.contrasena
+            },
+            beforeSend: function (xhr) 
+            {
+                $scope.cargando = true;
+            },
+            success: function (resultado, textStatus, jqXHR) 
+            {
+                if(resultado == true)
+                {
+                    alert("INGRESASTE A LA WEB");
+                }
+                else
+                {
+                    alert("USUARIO O CLAVE INVALIDAS")
+                }
+                $scope.cargando = false;
+                $scope.$evalAsync();
+            }
+
+        });
+    }
+    
+
+
+</script>

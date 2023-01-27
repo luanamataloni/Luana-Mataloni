@@ -1,0 +1,56 @@
+<div class="caja-login flex-between flex-center-v">
+    <div class="login-in button col-6 flex-center-v">
+
+        <!-- BOTON INGRESAR -->
+        <button class="btn btn-secondary" ng-click="mostrarCartelUsuario()">
+            <i class="fa-solid fa-user"></i>
+            Ingresar
+        </button>
+
+
+        <div class="login-up button col-6">
+
+            {{mostrarCartel}}
+        </div>
+
+        
+
+
+    </div>
+    
+</div>
+
+
+
+<style>
+    
+    .login-in {
+        /* background-color: black; */
+        height: 100%;
+
+    }
+    .login-up {
+        /* background-color: blue; */
+        height: 100%;
+        
+    }
+    .caja-login {
+        height: 70px;
+        /* background-color: white; */
+
+    }
+</style>
+
+<script inyectado>
+
+    // VARIABLE
+    $scope.mostrarCartel=true;
+
+
+    // FUNCION
+    $scope.mostrarCartelUsuario = function()
+    {
+        $scope.mostrarCartel=!$scope.mostrarCartel;
+    }
+
+</script>

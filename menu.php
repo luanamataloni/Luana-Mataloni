@@ -139,200 +139,19 @@
       
       
       
-      </head>      <body ng-app="app" ng-controller="ctl" ng-init="init()" ng-cloak class="body sin-padding col-12">		<div class="contenedor-padre flex">
+      </head>      <body ng-app="app" ng-controller="ctl" ng-init="init()" ng-cloak class="body sin-padding col-12">		<div class="contenedor-padre">
 		
-		    <div class="contenedor-izq contenedores-banner col-3">
-		        <img class="img-logo" src="https://everythingfenix.com/wp-content/uploads/2018/03/everything-fenix-logo-on-black.png">
-		    </div>
-		    <div class="contenedor-mid contenedores-banner col-5">
-		        <div class="padre flex-between flex-center-v">
-		            <div class="item">Contacto</div>
-		            <div class="item">Trabajo</div>
-		            <div class="item">Tu Vieja</div>
-		            <div class="item">Tu Papa</div>
-		        </div>
-		        
-		        <style>
-		        .item{
-		            padding-left: 25px;
-		            padding-right: 25px;
-		            padding-top: 15px;
-		            color: white;
-		            font-size: 16px;
-		            font-weight: bold;
-		            font-family: 'Montserrat';
-		            
-		        }
-		        .padre{
-		            padding-top: 10px;
-		        }
-		        
-		        </style>
-		        
-		    </div>
-		    <div class="contenedor-der contenedores-banner col-4">
-		        <div class="caja-login flex-between flex-center-v">
-		            <div class="login-in button col-6 flex-center-v">
-		        
-		                <!-- BOTON INGRESAR -->
-		                <button class="btn btn-secondary" ng-click="mostrarCartelUsuario()">
-		                    <i class="fa-solid fa-user"></i>
-		                    Ingresar
-		                </button>
-		        
-		        
-		                <div class="login-up button col-6">
-		        
-		                    {{mostrarCartel}}
-		                </div>
-		        
-		                
-		        
-		        
-		            </div>
-		            
-		        </div>
-		        
-		        
-		        
-		        <style>
-		            
-		            .login-in {
-		                /* background-color: black; */
-		                height: 100%;
-		        
-		            }
-		            .login-up {
-		                /* background-color: blue; */
-		                height: 100%;
-		                
-		            }
-		            .caja-login {
-		                height: 70px;
-		                /* background-color: white; */
-		        
-		            }
-		        </style>
-		        
-		    </div>
-		</div>
-		
-		<div class="cartelito" ng-show="mostrarCartel"> 
-		    <div class="form-group">
-		      <label for="usr">Nombre Usuario:</label>
-		      <input type="text" class="form-control" ng-model="correo">
-		        <br>
-		        El Email que escribiste es: 
-		      {{correo}}
-		    </div>
-		
-		    <div class="form-group">
-		      <label for="pwd">Contraseña:</label>
-		      <input type="password" class="form-control" ng-model="contrasena">
-		      <br>
-		      Tu contraseña es:
-		      {{contrasena}}
-		    </div>
-		
-		
-		    <button class="btn btn-info" ng-click="guardarUsuario()" >
-		        Ingresar
-		    </button>
-		
-		    <button class="btn btn-danger" ng-click="mostrarCartelUsuario()">
-		        Cancelar
-		    </button>
 		</div>
 		
 		
 		<style>
-		.cartelito {
-		    position: absolute;
-		    top: 20%;
-		    left: 20%;
-		    right: 20%;
-		    border: solid 1px red;
-		}
-		</style>
-		
-		
-		
-		<style>
-		
-		    .contenedor-padre
-		    {
-		        height: 70px;
-		        background-color: red;
-		
-		    }
-		    .contenedor-izq
-		    {
-		        height: 100%;
-		        background-color: green;
-		    }
-		    .contenedor-mid
-		    {
-		        height: 100%;
-		        background-color: blue;
-		    }
-		    .contenedor-der
-		    {
-		        height: 100%;
-		        background-color: rgb(255, 204, 0);
+		    .contenedor-padre{
+		        border-color: 1px red;
 		    }
 		
-		    .img-logo{
-		        height: 100%;
-		    }
-		</style>	</body>	<script>      app = angular.module('app', ['ngSanitize']);
+		</style>	</body>	<script>      app = angular.module('app', ['ngSanitize']);
       app.controller('ctl', function ($scope, $http)
-      {	
-	    // VARIABLE
-	    $scope.mostrarCartel=true;
-	
-	
-	    // FUNCION
-	    $scope.mostrarCartelUsuario = function()
-	    {
-	        $scope.mostrarCartel=!$scope.mostrarCartel;
-	    }
-	
-	    $scope.guardarUsuario=function(){
-	        // alert("Estoy guardando el usuario" + " "+  $scope.correo + " " + $scope.contrasena)
-	
-	        $scope.cargando = false;
-	        $.ajax(
-	        {
-	            url:"autenticarse.php",
-	            data:
-	            {
-	                "mail":$scope.correo,
-	                "clave":$scope.contrasena
-	            },
-	            beforeSend: function (xhr) 
-	            {
-	                $scope.cargando = true;
-	            },
-	            success: function (resultado, textStatus, jqXHR) 
-	            {
-	                if(resultado == true)
-	                {
-	                    alert("INGRESASTE A LA WEB");
-	                }
-	                else
-	                {
-	                    alert("USUARIO O CLAVE INVALIDAS")
-	                }
-	                $scope.cargando = false;
-	                $scope.$evalAsync();
-	            }
-	
-	        });
-	    }
-	    
-	
-	
-	});      </script>
+      {	});      </script>
       
       <style>
       .sin-padding {
@@ -361,7 +180,7 @@
             flex-wrap: wrap;
             justify-content: center;
       }
-      .flex-center-v
+      .flex-center-V
       {
             display: flex;
             flex-wrap: wrap;
@@ -371,12 +190,6 @@
       {
             display: flex;
             justify-content: start;
-            align-items: center;
-      }
-      .flex-between
-      {
-            display: flex;
-            justify-content: space-between;
             align-items: center;
       }
       .center

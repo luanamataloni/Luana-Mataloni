@@ -27,7 +27,7 @@
       flex-wrap: wrap;
       justify-content: center;
 }
-.flex-center-V
+.flex-center-v
 {
       display: flex;
       flex-wrap: wrap;
@@ -37,6 +37,12 @@
 {
       display: flex;
       justify-content: start;
+      align-items: center;
+}
+.flex-between
+{
+      display: flex;
+      justify-content: space-between;
       align-items: center;
 }
 .center
