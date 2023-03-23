@@ -1,0 +1,156 @@
+<div class="contenedor-galeria col-12 sin-padding flex">
+
+
+      <div class="flecha-galeria  flecha-izq-galeria  flex-center-v flex-center" ng-click="avanzarGaleria(false)">
+            <i class="fa-solid fa-chevron-left"></i>
+      </div>
+
+      <div class="cont-items-galeria flex" id="galeria">
+            <div class="separador-item-galeria" ng-repeat="itemLoop in arrGaleria">
+                  <div class="item-galeria">
+                        <div class="img-item-galeria" style="background-image: url('{{itemLoop.foto}}')">
+                              <h3 class="h-item-galeria">{{itemLoop.nombre}}</h3>
+                        </div>
+
+                        <div class="contenedor-ver-mas-item-galeria ">
+                              Ver Mas
+                              <br>
+                              <i class="fa-solid fa-angle-down"></i>
+                        </div>
+                  </div>
+            </div>
+      </div>
+      <div class="flecha-galeria flecha-der-galeria  flex-center-v flex-center" ng-click="avanzarGaleria(true)">
+            <i class="fa-solid fa-chevron-right"></i>
+      </div>
+</div>
+
+<style>
+      .contenedor-galeria {
+            /* border: solid 1px blue; */
+            height: 300px;
+      }
+
+      .cont-items-galeria {
+            width: calc(100% - 100px);
+            background-color: lightgrey;
+
+            overflow-x: scroll;
+            overflow-y: hidden;
+            padding-top: 25px;
+            padding-bottom: 25px;
+            padding-left: 15px;
+      }
+
+      .separador-item-galeria {
+            padding-right: 15px;
+      }
+
+      .item-galeria {
+            /* border: solid 1px yellow; */
+            width: 200px;
+            height: 220px;
+            background-color: white;
+            /* border-radius: 20px; */
+            cursor: pointer;
+            box-shadow: 5px 5px 15px black;
+            padding: 15px;
+      }
+
+      .flecha-galeria {
+            /* border: solid 1px red; */
+            width: 50px;
+            height: 100%;
+            cursor: pointer;
+      }
+
+      .img-item-galeria {
+            height: 150px;
+            /* border: solid 1px red; */
+            background-position: top center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            /* border-radius: 12px 12px 0px 0px; */
+      }
+
+      .h-item-galeria {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            padding: 8px;
+            z-index: 999;
+            color: white;
+            padding-top: 100px;
+      }
+
+      /* SCROLLBAR CUSTOM */
+      .cont-items-galeria::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+      }
+
+      .cont-items-galeria::-webkit-scrollbar-track {
+            background: transparent;
+            width: 10px;
+            height: 10px;
+            border-radius: 50px;
+      }
+
+      .cont-items-galeria::-webkit-scrollbar-thumb {
+            background: lightcoral;
+            border-radius: 50px;
+      }
+
+      .cont-items-galeria::-webkit-scrollbar-thumb:hover {
+            background: #555;
+      }
+
+      .contenedor-ver-mas-item-galeria {
+            text-align: center;
+            /* border: solid 1px red; */
+      }
+</style>
+<script inyectado>
+
+      $(document).ready(function ()
+      {
+            console.log("ready");
+      })
+
+
+      $scope.arrGaleria = [
+            { "nombre": "Vilche", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
+            { "nombre": "Feria", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
+            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
+            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
+            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
+            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
+            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
+            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
+            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
+            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
+            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
+            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
+            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" }
+      ]
+
+
+      $scope.avanzarGaleria = function (adelante)
+      {
+            aumento = 450;
+            offset = $("#galeria").scrollLeft()
+            console.log("AVANZANDO EN GALERIA: " + adelante + " -> " + offset);
+
+            if (adelante)
+            {
+                  offset += aumento;
+                  $('#galeria').animate({ scrollLeft: '+=' + aumento }, 500);
+            }
+            else
+            {
+                  offset -= aumento;
+                  $('#galeria').animate({ scrollLeft: '-=' + aumento }, 500);
+            }
+
+            // $("#galeria").scrollLeft(offset)
+      }
+</script>
