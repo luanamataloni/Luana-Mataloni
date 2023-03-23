@@ -1,0 +1,138 @@
+<!-- TITULO TRABAJOS -->
+<body>
+<div class="trabajos flex-center-v flex-center-h flex center">
+    TRABAJOS
+</div>
+
+<div class="cont-galery col-12 flex-center-h sin-padding">
+
+    <!-- FLECHA IZQUIERDA -->
+    <div class="flecha-izq col-1 flex-center-v flex-center-h">
+        <i class="fa-solid fa-chevron-left"></i>
+    </div>
+
+    <!-- CARRUSEL-TRABAJOS -->
+    <div class="item-trabajo col-7 flex-center-h sin-padding"
+        style="border: solid 1px green"
+        ng-repeat="trabajoLoop in arrTrabajos">
+
+        <h3>
+            {{trabajoLoop.nombre}}
+        </h3>
+        <div class="img-item-trabajo" style="background-image: {{trabajoLoop.foto}};">
+
+        </div>
+        <div class="contenedor-pdf-trabajos col-12 sin-padding">
+            <embed src="{{trabajoLoop.pdf}}" type="application/pdf" 
+            width="100%"
+            height="400px" />
+        </div>
+        <!-- <img class="foto" src="../src/CASA/img/tres.jpg"> -->
+    </div>
+
+        
+        
+         
+    
+    <!-- FLECHA DERECHA -->
+    <div class="flecha-der col-1 flex-center-v flex-center-h">
+        <i class="fa-solid fa-chevron-right"></i>
+    </div>
+
+</div>
+
+</body>
+
+
+
+<style>
+    .img-item-trabajo
+    {
+        width: 300px;
+        height: 300px;
+    }
+    .foto{
+        width: 100%;
+    }
+    /* FLECHA */
+    .fa-solid{
+        cursor: pointer;
+    }
+    .img-galeria{
+        height: 100%;
+        width: 100%;
+    }
+
+    .trabajos{
+        border: solid 1px rgb(34, 255, 0);
+        height: 80px;
+    }
+
+    .galeria{
+        border: solid 1px rgb(0, 255, 221);
+        height: 400px;
+    }
+
+    .flecha-der{
+        border: solid 1px rgb(255, 0, 221);
+        /* background-color: black; */
+    }
+
+    .flecha-izq {
+        border: solid 1px rgb(255, 0, 221);
+        /* background-color: black; */
+
+    }
+
+    .cont-galery{
+        border: solid 1px rgb(255, 119, 0);
+        height: 400px;
+
+    }
+    
+
+</style>
+
+
+<script inyectado>
+    $scope.arrTrabajos = [
+        {"nombre":"Vonte","foto":"img/vonte.png","pdf":"pdfs/VONTE.pdf"},
+        {"nombre":"Vilche","foto":"img/vilche.png","pdf":"pdfs/vilche.pdf"},
+        {"nombre":"Feria","foto":"img/feria.png","pdf":"pdfs/feria.pdf"}
+    ];
+//     var timer = 4000;
+
+// var i = 0;
+// var max = $('#c > li').length;
+ 
+// 	$("#c > li").eq(i).addClass('active').css('left','0');
+// 	$("#c > li").eq(i + 1).addClass('active').css('left','25%');
+// 	$("#c > li").eq(i + 2).addClass('active').css('left','50%');
+// 	$("#c > li").eq(i + 3).addClass('active').css('left','75%');
+ 
+
+// 	setInterval(function(){ 
+
+// 		$("#c > li").removeClass('active');
+
+// 		$("#c > li").eq(i).css('transition-delay','0.25s');
+// 		$("#c > li").eq(i + 1).css('transition-delay','0.5s');
+// 		$("#c > li").eq(i + 2).css('transition-delay','0.75s');
+// 		$("#c > li").eq(i + 3).css('transition-delay','1s');
+
+// 		if (i < max-4) {
+// 			i = i+4; 
+// 		}
+
+// 		else { 
+// 			i = 0; 
+// 		}  
+
+// 		$("#c > li").eq(i).css('left','0').addClass('active').css('transition-delay','1.25s');
+// 		$("#c > li").eq(i + 1).css('left','25%').addClass('active').css('transition-delay','1.5s');
+// 		$("#c > li").eq(i + 2).css('left','50%').addClass('active').css('transition-delay','1.75s');
+// 		$("#c > li").eq(i + 3).css('left','75%').addClass('active').css('transition-delay','2s');
+	
+// 	}, timer);
+ 
+</script>

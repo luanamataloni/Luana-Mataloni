@@ -1,41 +1,54 @@
-<div class="contenedor-padre flex">
+<!-- 1 - BARRA DE MENU -->
+<div class="barra-rosa  flex ">
 
     <div class="contenedor-izq contenedores-banner col-3">
-        <img class="img-logo" src="https://everythingfenix.com/wp-content/uploads/2018/03/everything-fenix-logo-on-black.png">
+        <img class="img-logo" src="../CASAS/img/logos-03.png">
     </div>
-    <div class="contenedor-mid contenedores-banner col-5">
+    <div class="contenedor-mid contenedores-banner col-6">
         <include src="componentes-menu/item-medio.html"></include>
     </div>
-    <div class="contenedor-der contenedores-banner col-4">
+    <div class="contenedor-der contenedores-banner col-3">
         <include src="./componentes-menu/login.html"></include>
     </div>
 </div>
 
-<include src="./componentes-menu/cartel-login.html"></include>
+
+<include src="../componentes-menu/banner.html"></include>
+
+
+
+<!-- 2 - CARTEL LOGIN: -->
+<include src="../componentes-menu/cartel-login.html"></include>
+
+<!-- 3 - TARJETAS DE SERVICIOS BRINDADOS: -->
+
 
 
 <style>
 
-    .contenedor-padre
+
+    .barra-rosa 
     {
         height: 70px;
-        background-color: red;
+        background-color: #ED928C;
+        /* border: solid 1px rebeccapurple; */
+       
 
     }
     .contenedor-izq
     {
         height: 100%;
-        background-color: green;
+        /* background-color: green; */
     }
     .contenedor-mid
     {
         height: 100%;
-        background-color: blue;
+        /* background-color: blue; */
     }
     .contenedor-der
     {
         height: 100%;
-        background-color: rgb(255, 204, 0);
+        /* background-color: rgb(255, 204, 0); */
     }
 
     .img-logo{

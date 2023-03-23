@@ -1,0 +1,44 @@
+
+<h3>Trabajos</h3>
+{{arrTrabajos}}
+<div id="demo" class="carousel slide" data-ride="carousel" style="border: solid 1px yellow">
+
+    <!-- Indicators -->
+    <!-- <ul class="carousel-indicators">
+        <li data-target="#demo" ng-repeat="trabajo in arrTrabajos" 
+            data-slide-to="{{$index}}"
+            ng-class="{'true':'active'}[$index == 0]">
+        </li>
+    </ul> -->
+  
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+      <div class="carousel-item"
+        style="background-color: black;height: 250px;width: 250px;z-index: 9999;"
+        ng-repeat="trabajo in arrTrabajos"
+        ng-class="{'true':'active'}[$index == 0]">
+
+            {{trabajo}}
+            <!-- <img ng-src="{{trabajo.foto}}" alt="Los Angeles"> -->
+      </div>
+    </div>
+  
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </a>
+  
+</div>
+
+
+
+<script inyectado>
+    $scope.arrTrabajos = [
+        {"nombre":"Vonte","foto":"img/vonte.png","pdf":"pdfs/VONTE.pdf"},
+        {"nombre":"Vilche","foto":"img/vilche.png","pdf":"pdfs/vilche.pdf"},
+        {"nombre":"Feria","foto":"img/feria.png","pdf":"pdfs/feria.pdf"}
+    ];
+</script>
