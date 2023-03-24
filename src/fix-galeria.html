@@ -7,7 +7,7 @@
 
       <div class="cont-items-galeria flex" id="galeria">
             <div class="separador-item-galeria" ng-repeat="itemLoop in arrGaleria">
-                  <div class="item-galeria">
+                  <div class="item-galeria" ng-click="abrirItemGaleria(itemLoop)">
                         <div class="img-item-galeria" style="background-image: url('{{itemLoop.foto}}')">
                               <h3 class="h-item-galeria">{{itemLoop.nombre}}</h3>
                         </div>
@@ -24,6 +24,10 @@
             <i class="fa-solid fa-chevron-right"></i>
       </div>
 </div>
+
+
+<!-- MODAL GALERIA: -->
+<include src="trabajos-galeria/modal-galeria-pdf.html"></include>
 
 <style>
       .contenedor-galeria {
@@ -118,19 +122,19 @@
 
 
       $scope.arrGaleria = [
-            { "nombre": "Vilche", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
-            { "nombre": "Feria", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
-            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
-            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
-            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
-            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
-            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
-            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
-            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
-            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
-            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
-            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
-            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" }
+            { "nombre": "Vilche", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
+            { "nombre": "Feria", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
+            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
+            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
+            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
+            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
+            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
+            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
+            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
+            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
+            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
+            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
+            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" }
       ]
 
 
@@ -152,5 +156,15 @@
             }
 
             // $("#galeria").scrollLeft(offset)
+      }
+
+      $scope.itemGaleriaSelected = null;
+
+      $scope.abrirItemGaleria = function (itemGaleria)
+      {
+            console.log("ABRIENDO MODAL GALERIA:");
+            $scope.itemGaleriaSelected = itemGaleria;
+            $scope.$evalAsync();
+            $("#modalPdf").modal();
       }
 </script>

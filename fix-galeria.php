@@ -148,7 +148,7 @@
 		
 		      <div class="cont-items-galeria flex" id="galeria">
 		            <div class="separador-item-galeria" ng-repeat="itemLoop in arrGaleria">
-		                  <div class="item-galeria">
+		                  <div class="item-galeria" ng-click="abrirItemGaleria(itemLoop)">
 		                        <div class="img-item-galeria" style="background-image: url('{{itemLoop.foto}}')">
 		                              <h3 class="h-item-galeria">{{itemLoop.nombre}}</h3>
 		                        </div>
@@ -166,6 +166,33 @@
 		      </div>
 		</div>
 		
+		
+		<!-- MODAL GALERIA: -->
+		<!-- The Modal -->
+		<div class="modal" id="modalPdf">
+		      <div class="modal-dialog">
+		            <div class="modal-content">
+		
+		                  <!-- Modal Header -->
+		                  <div class="modal-header">
+		                        <h4 class="modal-title">{{itemGaleriaSelected.nombre}}</h4>
+		                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+		                  </div>
+		
+		                  <!-- Modal body -->
+		                  <div class="modal-body">
+		                        <embed src="{{itemGaleriaSelected.pdf}}" class="col-12 sin-padding" height="475"
+		                              type="application/pdf">
+		                  </div>
+		
+		                  <!-- Modal footer -->
+		                  <div class="modal-footer">
+		                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+		                  </div>
+		
+		            </div>
+		      </div>
+		</div>		
 		<style>
 		      .contenedor-galeria {
 		            /* border: solid 1px blue; */
@@ -260,19 +287,19 @@
 	
 	
 	      $scope.arrGaleria = [
-	            { "nombre": "Vilche", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
-	            { "nombre": "Feria", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
-	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
-	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
-	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
-	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
-	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
-	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
-	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
-	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
-	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
-	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" },
-	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "texto": "jasdjfklañsdfklajsdklf" }
+	            { "nombre": "Vilche", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
+	            { "nombre": "Feria", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
+	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
+	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
+	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
+	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
+	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
+	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
+	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
+	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
+	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
+	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
+	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" }
 	      ]
 	
 	
@@ -294,6 +321,16 @@
 	            }
 	
 	            // $("#galeria").scrollLeft(offset)
+	      }
+	
+	      $scope.itemGaleriaSelected = null;
+	
+	      $scope.abrirItemGaleria = function (itemGaleria)
+	      {
+	            console.log("ABRIENDO MODAL GALERIA:");
+	            $scope.itemGaleriaSelected = itemGaleria;
+	            $scope.$evalAsync();
+	            $("#modalPdf").modal();
 	      }
 	});      </script>
       
