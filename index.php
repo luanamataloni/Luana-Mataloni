@@ -387,21 +387,34 @@
 		</style>
 		
 		
-		<!-- SERVICIOS -->
+		
 		
 		<!-- TRABAJOS -->
 		<div class="contenedor-galeria col-12 sin-padding flex">
 		
+		      <!-- IMAGEN NOMBRE PORTAFOLIO -->
+		      <div class="img-logo-portafolio sin-padding flex-center-v flex-center ">
+		            <div class="titulo-portafolio-img flex-center-v flex-center-h flex-center flex pt-3 pb-3">
+		                <img src="../CASAS/img/portafolio.png" class="img-portafolio">
+		            </div>
+		      </div>
 		
+		      <!-- LINEA FONDO COLOR ROSA -->
+		      <div class="linea-rosa-atras"></div>
+		
+		
+		      <!-- FLECHA IZQUIERDA -->
 		      <div class="flecha-galeria  flecha-izq-galeria  flex-center-v flex-center" ng-click="avanzarGaleria(false)">
 		            <i class="fa-solid fa-chevron-left"></i>
 		      </div>
-		
+		      <!-- ITEMS GALERIA -->
 		      <div class="cont-items-galeria flex" id="galeria">
 		            <div class="separador-item-galeria" ng-repeat="itemLoop in arrGaleria">
 		                  <div class="item-galeria" ng-click="abrirItemGaleria(itemLoop)">
 		                        <div class="img-item-galeria" style="background-image: url('{{itemLoop.foto}}')">
 		                              <h3 class="h-item-galeria">{{itemLoop.nombre}}</h3>
+		                              
+		                              
 		                        </div>
 		
 		                        <div class="contenedor-ver-mas-item-galeria ">
@@ -412,6 +425,8 @@
 		                  </div>
 		            </div>
 		      </div>
+		
+		      <!-- FLECHA DERECHA -->
 		      <div class="flecha-galeria flecha-der-galeria  flex-center-v flex-center" ng-click="avanzarGaleria(true)">
 		            <i class="fa-solid fa-chevron-right"></i>
 		      </div>
@@ -445,35 +460,54 @@
 		      </div>
 		</div>		
 		<style>
+		      .img-logo-portafolio{
+		            height: 80px;
+		      }
+		      .titulo-portafolio-img{
+		            height: 100%;
+		      }
+		      .img-portafolio{
+		            height: 40px;
+		      }
+		
 		      .contenedor-galeria {
 		            /* border: solid 1px blue; */
-		            height: 300px;
+		            height: 500px;
+		            padding-top: 20px;
+		            
 		      }
 		
 		      .cont-items-galeria {
 		            width: calc(100% - 100px);
-		            background-color: lightgrey;
+		            background-color: white;
 		
 		            overflow-x: scroll;
 		            overflow-y: hidden;
-		            padding-top: 25px;
+		            padding-top: 100px;
 		            padding-bottom: 25px;
-		            padding-left: 15px;
+		            padding-left: 45px;
+		
+		            
 		      }
 		
 		      .separador-item-galeria {
-		            padding-right: 15px;
+		            padding-right: 45px;
 		      }
 		
 		      .item-galeria {
 		            /* border: solid 1px yellow; */
-		            width: 200px;
-		            height: 220px;
+		            width: 320px;
+		            height: 340px;
 		            background-color: white;
 		            /* border-radius: 20px; */
 		            cursor: pointer;
-		            box-shadow: 5px 5px 15px black;
-		            padding: 15px;
+		            /* SOMBRA */
+		            -webkit-box-shadow: 0px 10px 22px -4px rgba(0,0,0,0.43);
+		            -moz-box-shadow: 0px 10px 22px -4px rgba(0,0,0,0.43);
+		            box-shadow: 0px 10px 22px -4px rgba(0,0,0,0.43);
+		            /* box-shadow: 5px 5px 15px black; */
+		            padding: 20px;
+		            position: relative;
 		      }
 		
 		      .flecha-galeria {
@@ -481,25 +515,32 @@
 		            width: 50px;
 		            height: 100%;
 		            cursor: pointer;
+		            position: relative;
 		      }
 		
 		      .img-item-galeria {
-		            height: 150px;
+		            height: 300px;
+		            position: relative;
+		            top: -50px;
 		            /* border: solid 1px red; */
 		            background-position: top center;
 		            background-repeat: no-repeat;
 		            /* PARA QUE LA IMG SE CENTRE DENTRO DEL DIV */
-		            background-size: contain;
+		            background-size: cover;
 		            /* border-radius: 12px 12px 0px 0px; */
+		            position: relative;
 		      }
 		
 		      .h-item-galeria {
 		            font-family: 'Montserrat', sans-serif;
-		            font-size: 16px;
+		            font-size: 20px;
 		            padding: 8px;
 		            z-index: 999;
 		            color: white;
-		            padding-top: 100px;
+		            padding-top: 270px;
+		            /* text-shadow: 2px 2px 3px #696969; */
+		            position: relative;
+		           
 		      }
 		
 		      /* SCROLLBAR CUSTOM */
@@ -526,10 +567,156 @@
 		
 		      .contenedor-ver-mas-item-galeria {
 		            text-align: center;
+		            position: relative;
+		            top:-25px;
 		            /* border: solid 1px red; */
 		      }
+		      .linea-rosa-atras{
+		            background-color: #ED918C;
+		            height: 140px;
+		            width: 100%;
+		            position: absolute;
+		            bottom: 170px;
+		            opacity: 80%;
+		      }
 		</style>
-		<!-- STAFF -->
+		
+		<!-- GALERIA HERRAMIENTAS DE TRABAJO -->
+		<!-- CONTENEDOR DE IMAGEN TEXTO HERRAMIENTAS -->
+		<div class="contenedor-img-herramientas col-12 sin-padding flex-center-v flex-center">
+		    <div class="titulo-herramientas-img flex-center-v flex-center-h flex-center flex">
+		        <img src="../CASAS/img/herramientas.png" class="img-herramientas">
+		    </div>
+		</div>
+		
+		<div class="contenedor-de-todo">
+		
+		    <div class="cont-herramientas-trabajo col-12 sin-padding flex" 
+		            style="background-image: url(../CASAS/img/ondas-03.png)">
+		
+		            
+		
+		            <!-- FLECHA IZQUIERDA --> 
+		
+		            <div class="flecha-gal flecha-izq flex-center-v flex-center">
+		                <i class="fa-solid fa-chevron-left"></i>
+		            </div>
+		
+		
+		            <!-- GALERIA DE HERRAMIENYTAS DE TRABAJOS -->
+		            <div class="item-herramientas-trabajos flex-center">
+		
+		                <div class="sombra-foto-item-herramientas" ng-repeat="herramientaLoop in arrHerramientas">
+		
+		                    <div class="foto-item-herramientas" 
+		                        style="background-image: url('{{herramientaLoop.foto}}')">
+		                    </div>
+		                </div>
+		            </div>
+		
+		
+		            <!-- FLECHA DERECHA -->
+		            <div class="flecha-gal flecha-der flex-center-h flex-center">
+		                <i class="fa-solid fa-chevron-right"></i>
+		            </div>
+		    </div>
+		
+		</div>
+		
+		
+		<style>
+		.cont-herramientas-trabajo{
+		    height: 150px;
+		    /* border: solid 1px red; */
+		    margin-bottom: 75px;
+		    background-size: contain;
+		    background-repeat: no-repeat;
+		    background-position: center center;
+		}
+		.sombra-foto-item-herramientas
+		{
+		    height: 120px;
+		    width: 120px;
+		    /* background-color: grey; */
+		    border: solid 1px rgb(232, 232, 232);
+		    border-radius: 50%;
+		    /* box-shadow: 10px 10px 5px black; */
+		    margin-right: 15px;
+		    background-color: white;
+		
+		    /* SOMBRA */
+		    -webkit-box-shadow: 0px 40px 19px -30px rgba(50, 50, 50, 0.54);
+		    -moz-box-shadow:    0px 40px 19px -30px rgba(50, 50, 50, 0.54);
+		    box-shadow:         0px 40px 19px -30px rgba(50, 50, 50, 0.54);
+		    cursor: pointer;
+		    /* transition: all 500ms;
+		    position: relative; */
+		}
+		.sombra-foto-item-herramientas:hover{
+		    transform: scale(0,80);
+		    -webkit-transform: scale(0,80);
+		}
+		
+		.foto-item-herramientas{
+		    height: 120px;
+		    width: 120px;
+		    /* border:solid 1px yellow; */
+		    border-radius: 50%;
+		
+		    /* CENTRAR IMG EN UN DIV - APARECE */
+		    background-size: contain;
+		    background-repeat: no-repeat;
+		    background-position: center center;
+		    /* background-color: yellow; */
+		    
+		
+		    /* border-radius: 50%; */
+		    /* background-position: top center;
+		    background-repeat: no-repeat;
+		    background-size: contain; */
+		}
+		.item-herramientas-trabajos{
+		    height: 150px;
+		    width: 100%;
+		    /* border: solid 1px blue; */
+		    padding-left: 15px;
+		    }
+		
+		.flecha-gal {
+		            /* border: solid 1px green; */
+		            width: 50px;
+		            height: 100%;
+		            cursor: pointer;
+		      }
+		
+		.contenedor-img-herramientas{
+		    height: 80px;
+		    /* border: solid 1px blue; */
+		    padding-top: 80px;
+		    
+		    
+		}
+		
+		.titulo-herramientas-img{
+		    
+		    height: 100%;
+		    
+		}
+		.img-herramientas{
+		    height: 40px;
+		    /* border: solid 1px green; */
+		    
+		}
+		.contenedor-de-todo{
+		    padding-top: 100px;
+		}
+		</style>
+		
+		
+		
+		<!-- SERVICIOS -->
+		
+		<!-- STAFF -->
 		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->	</body>	<script>      app = angular.module('app', ['ngSanitize']);
       app.controller('ctl', function ($scope, $http)
       {	
@@ -587,7 +774,7 @@
 	
 	
 	      $scope.arrGaleria = [
-	            { "nombre": "Vilche", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
+	            { "nombre": "La Vonte", "foto": "./img/foto-portafolio/la-vonte.png", "pdf": "./pdfs/la-vonte-web.pdf", "texto": "jasdjfklañsdfklajsdklf" },
 	            { "nombre": "Feria", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
 	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
 	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
@@ -632,6 +819,19 @@
 	            $scope.$evalAsync();
 	            $("#modalPdf").modal();
 	      }
+	
+	    $scope.arrHerramientas = [
+	        {"nombre":"Git","foto":"img/logos-herramientas/git.jpg"},
+	        {"nombre":"html","foto":"img/logos-herramientas/html.png"},
+	        {"nombre":"Css","foto":"img/logos-herramientas/css.png"},
+	        {"nombre":"JavaS","foto":"img/logos-herramientas/js.png"},  
+	        {"nombre":"angular","foto":"img/logos-herramientas/angular.png"},  
+	        {"nombre":"Illustator","foto":"img/logos-herramientas/ill.png"},
+	        {"nombre":"ligthroom","foto":"img/logos-herramientas/lgt.png"},
+	        {"nombre":"photoshop","foto":"img/logos-herramientas/pht.png"},
+	        {"nombre":"figma","foto":"img/logos-herramientas/figma.png"}
+	    ]
+	
 	});      </script>
       
       <style>

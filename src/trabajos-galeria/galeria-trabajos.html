@@ -1,15 +1,28 @@
 <div class="contenedor-galeria col-12 sin-padding flex">
 
+      <!-- IMAGEN NOMBRE PORTAFOLIO -->
+      <div class="img-logo-portafolio sin-padding flex-center-v flex-center ">
+            <div class="titulo-portafolio-img flex-center-v flex-center-h flex-center flex pt-3 pb-3">
+                <img src="../CASAS/img/portafolio.png" class="img-portafolio">
+            </div>
+      </div>
 
+      <!-- LINEA FONDO COLOR ROSA -->
+      <div class="linea-rosa-atras"></div>
+
+
+      <!-- FLECHA IZQUIERDA -->
       <div class="flecha-galeria  flecha-izq-galeria  flex-center-v flex-center" ng-click="avanzarGaleria(false)">
             <i class="fa-solid fa-chevron-left"></i>
       </div>
-
+      <!-- ITEMS GALERIA -->
       <div class="cont-items-galeria flex" id="galeria">
             <div class="separador-item-galeria" ng-repeat="itemLoop in arrGaleria">
                   <div class="item-galeria" ng-click="abrirItemGaleria(itemLoop)">
                         <div class="img-item-galeria" style="background-image: url('{{itemLoop.foto}}')">
                               <h3 class="h-item-galeria">{{itemLoop.nombre}}</h3>
+                              
+                              
                         </div>
 
                         <div class="contenedor-ver-mas-item-galeria ">
@@ -20,6 +33,8 @@
                   </div>
             </div>
       </div>
+
+      <!-- FLECHA DERECHA -->
       <div class="flecha-galeria flecha-der-galeria  flex-center-v flex-center" ng-click="avanzarGaleria(true)">
             <i class="fa-solid fa-chevron-right"></i>
       </div>
@@ -30,35 +45,54 @@
 <include src="trabajos-galeria/modal-galeria-pdf.html"></include>
 
 <style>
+      .img-logo-portafolio{
+            height: 80px;
+      }
+      .titulo-portafolio-img{
+            height: 100%;
+      }
+      .img-portafolio{
+            height: 40px;
+      }
+
       .contenedor-galeria {
             /* border: solid 1px blue; */
-            height: 300px;
+            height: 500px;
+            padding-top: 20px;
+            
       }
 
       .cont-items-galeria {
             width: calc(100% - 100px);
-            background-color: lightgrey;
+            background-color: white;
 
             overflow-x: scroll;
             overflow-y: hidden;
-            padding-top: 25px;
+            padding-top: 100px;
             padding-bottom: 25px;
-            padding-left: 15px;
+            padding-left: 45px;
+
+            
       }
 
       .separador-item-galeria {
-            padding-right: 15px;
+            padding-right: 45px;
       }
 
       .item-galeria {
             /* border: solid 1px yellow; */
-            width: 200px;
-            height: 220px;
+            width: 320px;
+            height: 340px;
             background-color: white;
             /* border-radius: 20px; */
             cursor: pointer;
-            box-shadow: 5px 5px 15px black;
-            padding: 15px;
+            /* SOMBRA */
+            -webkit-box-shadow: 0px 10px 22px -4px rgba(0,0,0,0.43);
+            -moz-box-shadow: 0px 10px 22px -4px rgba(0,0,0,0.43);
+            box-shadow: 0px 10px 22px -4px rgba(0,0,0,0.43);
+            /* box-shadow: 5px 5px 15px black; */
+            padding: 20px;
+            position: relative;
       }
 
       .flecha-galeria {
@@ -66,25 +100,32 @@
             width: 50px;
             height: 100%;
             cursor: pointer;
+            position: relative;
       }
 
       .img-item-galeria {
-            height: 150px;
+            height: 300px;
+            position: relative;
+            top: -50px;
             /* border: solid 1px red; */
             background-position: top center;
             background-repeat: no-repeat;
             /* PARA QUE LA IMG SE CENTRE DENTRO DEL DIV */
-            background-size: contain;
+            background-size: cover;
             /* border-radius: 12px 12px 0px 0px; */
+            position: relative;
       }
 
       .h-item-galeria {
             font-family: 'Montserrat', sans-serif;
-            font-size: 16px;
+            font-size: 20px;
             padding: 8px;
             z-index: 999;
             color: white;
-            padding-top: 100px;
+            padding-top: 270px;
+            /* text-shadow: 2px 2px 3px #696969; */
+            position: relative;
+           
       }
 
       /* SCROLLBAR CUSTOM */
@@ -111,7 +152,17 @@
 
       .contenedor-ver-mas-item-galeria {
             text-align: center;
+            position: relative;
+            top:-25px;
             /* border: solid 1px red; */
+      }
+      .linea-rosa-atras{
+            background-color: #ED918C;
+            height: 140px;
+            width: 100%;
+            position: absolute;
+            bottom: 170px;
+            opacity: 80%;
       }
 </style>
 <script inyectado>
@@ -123,7 +174,7 @@
 
 
       $scope.arrGaleria = [
-            { "nombre": "Vilche", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
+            { "nombre": "La Vonte", "foto": "./img/foto-portafolio/la-vonte.png", "pdf": "./pdfs/la-vonte-web.pdf", "texto": "jasdjfklañsdfklajsdklf" },
             { "nombre": "Feria", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
             { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
             { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },

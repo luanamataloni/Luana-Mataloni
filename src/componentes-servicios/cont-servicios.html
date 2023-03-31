@@ -1,35 +1,42 @@
-<div class="cont-servicios flex-center-v flex-center-h">
-    <div class="servicios flex-center-h flex-center-v">
-        <img src="../CASAS/img/servicios.png">
-    </div>
-</div>
-
-<div class="contenedor-tarjetas flex-center sin-padding">
-
-    <div class="tarjeta flex-center flex-center-v flex-center-h">
-        <img class="img-tarjeta">
-
-            <!-- FOTO EN PNG ENCIMA DE IMG -->
-            <div class="foto-encima flex-center-v"></div>
-                <!-- CONTENIDO DEL TITULO, DESCIPCION Y BOTON -->
-            <div class="cont-texto-btn">
-
-            <div class="textos">
-
-                <div class="titulo">Marketing <br> Digital</div>
-
-                <div class="descripcion">Manejo de redes sociales, Social
-                    Media, Media Planner, Community Management, Email Marketing.</div>
-
-            </div>
-                <!-- BOTON ROSA -->
-            <div class="boton-principal flex-center">
-                <button class="button flex-center">SABER MAS</button>
-            </div>
+    <!-- TITULO IMAGEN SERVICIOS -->
+    <div class="cont-servicios col-12 sin-padding flex-center-v flex-center">
+        <div class="servicios flex-center-v flex-center-h flex-center flex">
+            <!-- <img src="../CASAS/img/servicios.png"> -->
         </div>
     </div>
 
-</div>
+    <!-- TARJETAS DE SERVICIOS -->
+    <div class="contenedor-tarjetas flex-center sin-padding">
+
+        <div class="tarjeta flex-center flex-center-v flex-center-h" ng-repeat="tarjetaLoop in arrTarjeta">
+            
+            <div class="img-tarjeta"
+                style="background-image: url('{{herramientaLoop.foto2}}')">
+
+            </div>
+
+                <!-- FOTO EN PNG ENCIMA DE IMG -->
+                    <div class="foto-encima flex-center-v"
+                        style="background-image: url('{{herramientaLoop.foto1}}')">
+                    </div>
+                    <!-- CONTENIDO DEL TITULO, DESCIPCION Y BOTON -->
+                <div class="cont-texto-btn">
+
+                <div class="textos">
+
+                    <div class="titulo"></div>
+
+                    <div class="descripcion"></div>
+
+                </div>
+                    <!-- BOTON ROSA -->
+                <div class="boton-principal flex-center">
+                    <button class="button flex-center">SABER MAS</button>
+                </div>
+            
+        </div>
+
+    </div>
 
 <style>
     .foto-encima{
@@ -38,6 +45,9 @@
         width: 100px;
         border: solid 1px red;
         position: absolute;
+        margin-top: -130px;
+        
+        
     }
     .cont-texto-btn{
         border: solid 1px red;
@@ -46,8 +56,8 @@
     
     .tarjeta{
         height: 500px;
-        width: 290px;
-        border: solid 1px green;
+        width: 300px;
+        border: solid 1px rgb(202, 202, 202);
         border-radius: 20px;
     }
     .img-tarjeta{
@@ -55,6 +65,8 @@
         height: 40%;
         background-color: aqua;
         border-radius: 20px 20px 0px 0px;
+        
+        
     }
     .titulo{
         font-family: "Montserrat", sans-serif;
@@ -100,10 +112,11 @@
     }
     .contenedor-tarjetas{
         height: 500px;
-        border: solid 1px blue;
+        /* border: solid 1px blue; */
+        padding-top: 80px;
     }
     .servicios{
-        border: solid 1px green;
+        border: solid 1px yellow;
         height: 100%;
         /* color:#ED928C;
         font-size: 30px;
@@ -115,11 +128,17 @@
     .cont-servicios
     {
         height: 80px;
-        border: solid 1px red;
+        border: solid 1px black;
     }
 
 </style>
 
 <script inyectado>
+    $scope.arrTarjeta = [
+        {"foto1":"img/servicios/telefono.png","foto2":"img/servicios/marketing-telefono.jpg","titulo":"Merketing","descripcion":"Manejo de redes sociales, Social Media, Media Planner, Community Management, Email Marketing."}
+        // {"foto1":"","foto2":"","titulo":"","descripcion":""},
+        // {"foto1":"","foto2":"","titulo":"","descripcion":""}
+      
+    ]
 
 </script>
