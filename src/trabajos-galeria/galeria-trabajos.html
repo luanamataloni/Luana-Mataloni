@@ -1,11 +1,14 @@
+<!-- IMAGEN NOMBRE PORTAFOLIO -->
+<div class="contenedor-logo-portafolio sin-padding flex-center-v flex-center ">
+      <div class="titulo-portafolio-img flex-center-v flex-center-h flex-center flex pt-3 pb-3">
+          <img src="./img/portafolio.png" class="img-portafolio">
+      </div>
+</div>
+
+
 <div class="contenedor-galeria col-12 sin-padding flex">
 
-      <!-- IMAGEN NOMBRE PORTAFOLIO -->
-      <div class="img-logo-portafolio sin-padding flex-center-v flex-center ">
-            <div class="titulo-portafolio-img flex-center-v flex-center-h flex-center flex pt-3 pb-3">
-                <img src="../CASAS/img/portafolio.png" class="img-portafolio">
-            </div>
-      </div>
+      
 
       <!-- LINEA FONDO COLOR ROSA -->
       <div class="linea-rosa-atras"></div>
@@ -45,15 +48,24 @@
 <include src="trabajos-galeria/modal-galeria-pdf.html"></include>
 
 <style>
-      .img-logo-portafolio{
+
+      /* IMAGEN DEL TITULO PORTAFOLIO */
+      .contenedor-logo-portafolio{
             height: 80px;
+            width: 100%;
+            /* border: solid 1px blue;     */
       }
       .titulo-portafolio-img{
             height: 100%;
+            /* border: solid 1px red; */
+            
       }
       .img-portafolio{
             height: 40px;
+            
       }
+
+      /* COMIENZA LAS TARJETAS DE CADA TRABAJO */
 
       .contenedor-galeria {
             /* border: solid 1px blue; */
@@ -175,8 +187,8 @@
 
       $scope.arrGaleria = [
             { "nombre": "La Vonte", "foto": "./img/foto-portafolio/la-vonte.png", "pdf": "./pdfs/la-vonte-web.pdf", "texto": "jasdjfklañsdfklajsdklf" },
-            { "nombre": "Feria", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
-            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
+            { "nombre": "", "foto": "./img/foto-portafolio/noncello.png", "pdf": "./pdfs/noncello.pdf", "texto": "jasdjfklañsdfklajsdklf" },
+            { "nombre": "Manual de Marca", "foto": "./img/foto-portafolio/manualvilche.png", "pdf": "./pdfs/manual-vilche.pdf", "texto": "jasdjfklañsdfklajsdklf" },
             { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
             { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
             { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },

@@ -1,32 +1,42 @@
 <!-- CONTENEDOR DE IMAGEN TEXTO HERRAMIENTAS -->
 <div class="contenedor-img-herramientas col-12 sin-padding flex-center-v flex-center">
     <div class="titulo-herramientas-img flex-center-v flex-center-h flex-center flex">
-        <img src="../CASAS/img/herramientas.png" class="img-herramientas">
+        <img src="./img/herramientas.png" class="img-herramientas">
     </div>
 </div>
 
+
+Coleccion:{{arrHerramientas.length}}
 <div class="contenedor-de-todo">
 
-    <div class="cont-herramientas-trabajo col-12 sin-padding flex" 
+    <div class="cont-herramientas-trabajo  col-12 sin-padding flex" 
             style="background-image: url(../CASAS/img/ondas-03.png)">
 
             
 
             <!-- FLECHA IZQUIERDA --> 
-
-            <div class="flecha-gal flecha-izq flex-center-v flex-center">
+            <div class="flecha-gal flecha-izq flex-center-v flex-center ">
                 <i class="fa-solid fa-chevron-left"></i>
             </div>
 
 
             <!-- GALERIA DE HERRAMIENYTAS DE TRABAJOS -->
-            <div class="item-herramientas-trabajos flex-center">
+            <div class="real-cont-herramientas-trabajo flex">
 
-                <div class="sombra-foto-item-herramientas" ng-repeat="herramientaLoop in arrHerramientas">
+                <div class="item-herramientas-trabajos"
+                    ng-repeat="herramientaLoop in arrHerramientas">
+    
+                    <!-- <div class="sombra-foto-item-herramientas"> -->
+    
+                        
+                        <div class="foto-item-herramientas bsr p-3" >
 
-                    <div class="foto-item-herramientas" 
-                        style="background-image: url('{{herramientaLoop.foto}}')">
-                    </div>
+                            <div class="real-foto-item-herramientas"
+                            style="background-image: url('{{herramientaLoop.foto}}')">
+
+                            </div>
+                        </div>
+                    <!-- </div> -->
                 </div>
             </div>
 
@@ -42,61 +52,77 @@
 
 <style>
 .cont-herramientas-trabajo{
+    overflow-x: scroll;
+    overflow-y: hidden;
     height: 150px;
-    /* border: solid 1px red; */
     margin-bottom: 75px;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
 }
-.sombra-foto-item-herramientas
-{
-    height: 120px;
-    width: 120px;
-    /* background-color: grey; */
-    border: solid 1px rgb(232, 232, 232);
-    border-radius: 50%;
-    /* box-shadow: 10px 10px 5px black; */
-    margin-right: 15px;
-    background-color: white;
 
-    /* SOMBRA */
-    -webkit-box-shadow: 0px 40px 19px -30px rgba(50, 50, 50, 0.54);
-    -moz-box-shadow:    0px 40px 19px -30px rgba(50, 50, 50, 0.54);
-    box-shadow:         0px 40px 19px -30px rgba(50, 50, 50, 0.54);
-    cursor: pointer;
-    /* transition: all 500ms;
-    position: relative; */
+/* SCROLLBAR CUSTOM */
+.cont-herramientas-trabajo::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
 }
-.sombra-foto-item-herramientas:hover{
-    transform: scale(0,80);
-    -webkit-transform: scale(0,80);
+
+.cont-herramientas-trabajo::-webkit-scrollbar-track {
+    background: transparent;
+    width: 10px;
+    height: 10px;
+    border-radius: 50px;
+}
+
+.cont-herramientas-trabajo::-webkit-scrollbar-thumb {
+    background: #F2ADA9;
+    border-radius: 50px;
+}
+
+.cont-herramientas-trabajo::-webkit-scrollbar-thumb:hover {
+    background: #F2ADA9;
+}
+
+
+
+.real-cont-herramientas-trabajo
+{
+    /* width: 100px; */
+    width: calc(100% - 100px);
 }
 
 .foto-item-herramientas{
+    /* border:solid 1px yellow; */
+    border-radius: 50%;
+    background-color: white;
+
+}
+.real-foto-item-herramientas{
     height: 120px;
     width: 120px;
+    padding: 20px;
     /* border:solid 1px yellow; */
     border-radius: 50%;
 
     /* CENTRAR IMG EN UN DIV - APARECE */
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    /* background-color: yellow; */
-    
 
-    /* border-radius: 50%; */
-    /* background-position: top center;
-    background-repeat: no-repeat;
-    background-size: contain; */
 }
-.item-herramientas-trabajos{
+
+.sombra-foto-item-herramientas:hover {
+  transform: scale(1.2);
+}
+.item-herramientas-trabajos
+{
     height: 150px;
-    width: 100%;
+    width: 150px;
+    margin-right: 15px;
+    cursor: pointer; 
     /* border: solid 1px blue; */
-    padding-left: 15px;
-    }
+    /* padding-left: 15px; */
+}
 
 .flecha-gal {
             /* border: solid 1px green; */
@@ -125,6 +151,7 @@
 }
 .contenedor-de-todo{
     padding-top: 100px;
+    /* position: relative; */
 }
 </style>
 
@@ -132,15 +159,23 @@
 <script inyectado>
 
     $scope.arrHerramientas = [
-        {"nombre":"Git","foto":"img/logos-herramientas/git.jpg"},
+        
+        {"nombre":"Git","foto":"img/logos-herramientas/git.png"},
         {"nombre":"html","foto":"img/logos-herramientas/html.png"},
         {"nombre":"Css","foto":"img/logos-herramientas/css.png"},
         {"nombre":"JavaS","foto":"img/logos-herramientas/js.png"},  
         {"nombre":"angular","foto":"img/logos-herramientas/angular.png"},  
         {"nombre":"Illustator","foto":"img/logos-herramientas/ill.png"},
+        {"nombre":"Illustator","foto":"img/logos-herramientas/ill.png"},
+        {"nombre":"Illustator","foto":"img/logos-herramientas/ill.png"},
+        {"nombre":"Illustator","foto":"img/logos-herramientas/ill.png"},
+        {"nombre":"Illustator","foto":"img/logos-herramientas/ill.png"},
+        {"nombre":"Illustator","foto":"img/logos-herramientas/ill.png"},
+        {"nombre":"Illustator","foto":"img/logos-herramientas/ill.png"},
         {"nombre":"ligthroom","foto":"img/logos-herramientas/lgt.png"},
         {"nombre":"photoshop","foto":"img/logos-herramientas/pht.png"},
         {"nombre":"figma","foto":"img/logos-herramientas/figma.png"}
-    ]
+    ] 
+
 
 </script>
