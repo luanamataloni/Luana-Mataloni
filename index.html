@@ -51,16 +51,16 @@
 		    
 		            <!-- CONTENEDOR LOGO -->
 		        <div class="contenedor-izq col-3">
-		            <img class="img-logo" src="/img/logos-03.png">
+		            <!-- <img class="img-logo" src="/img/logos-03.png"> -->
 		        </div>
 		    
 		        <!-- CONTENEDOR ITEMS MENU -->
 		        <div class="contenedor-mid col-6">
 		        <div class="padre flex-between flex-center-v">
-		            <div class="item">¿QUIENES SOMOS?</div>
-		            <div class="item">¿QUE HACEMOS?</div>
-		            <div class="item">CLIENTES</div>
-		            <div class="item">PROPUESTAS</div>
+		            <div class="item">¿QUIEN SOY?</div>
+		            <div class="item">PORTAFOLIO</div>
+		            <div class="item">HERRAMIENTAS</div>
+		            <div class="item">CONTACTO</div>
 		        </div>
 		        
 		        <style>
@@ -83,7 +83,7 @@
 		        </div>
 		    
 		        <!-- CONTENEDOR ITEM LOGIN MENU -->
-		        <div class="contenedor-der col-3">
+		        <!-- <div class="contenedor-der col-3">
 		        <div class="caja-login flex-between flex-center-v">
 		            <div class="login-in button col-6 flex-center-h">
 		        
@@ -127,7 +127,7 @@
 		            }
 		        </style>
 		        
-		        </div>
+		        </div> -->
 		    </div>
 		    
 		    
@@ -518,13 +518,14 @@
 		                
 		    
 		                <!-- FLECHA IZQUIERDA --> 
-		                <div class="flecha-gal flecha-izq flex-center-v flex-center ">
+		                <div class="flecha-gal flecha-izq flex-center-v flex-center "
+		                ng-click="avanzarHerramientasTrabajo(false)">
 		                    <i class="fa-solid fa-chevron-left"></i>
 		                </div>
 		    
 		    
 		                <!-- GALERIA DE HERRAMIENYTAS DE TRABAJOS -->
-		                <div class="real-cont-herramientas-trabajo flex">
+		                <div id="real-cont-herramientas-trabajo" class="real-cont-herramientas-trabajo flex ">
 		    
 		                    <div class="item-herramientas-trabajos"
 		                        ng-repeat="herramientaLoop in arrHerramientas">
@@ -532,7 +533,7 @@
 		                        <!-- <div class="sombra-foto-item-herramientas"> -->
 		        
 		                            
-		                            <div class="foto-item-herramientas bsr p-3" >
+		                            <div class="foto-item-herramientas  p-3" >
 		    
 		                                <div class="real-foto-item-herramientas"
 		                                style="background-image: url('{{herramientaLoop.foto}}')">
@@ -545,7 +546,8 @@
 		    
 		    
 		                <!-- FLECHA DERECHA -->
-		                <div class="flecha-gal flecha-der flex-center-h flex-center">
+		                <div class="flecha-gal flecha-der flex-center-h flex-center"
+		                ng-click="avanzarHerramientasTrabajo(true)">
 		                    <i class="fa-solid fa-chevron-right"></i>
 		                </div>
 		        </div>
@@ -555,7 +557,7 @@
 		    
 		    <style>
 		    .cont-herramientas-trabajo{
-		        overflow-x: scroll;
+		        overflow-x: hidden;
 		        overflow-y: hidden;
 		        height: 150px;
 		        margin-bottom: 75px;
@@ -591,7 +593,30 @@
 		    .real-cont-herramientas-trabajo
 		    {
 		        /* width: 100px; */
+		        overflow-y: hidden;
+		        overflow-x: auto;
 		        width: calc(100% - 100px);
+		    }
+		    
+		    .real-cont-herramientas-trabajo::-webkit-scrollbar {
+		        width: 0px;
+		        height: 0px;
+		    }
+		    
+		    .real-cont-herramientas-trabajo::-webkit-scrollbar-track {
+		        background: transparent;
+		        width: 10px;
+		        height: 10px;
+		        border-radius: 50px;
+		    }
+		    
+		    .real-cont-herramientas-trabajo::-webkit-scrollbar-thumb {
+		        background: #F2ADA9;
+		        border-radius: 50px;
+		    }
+		    
+		    .real-cont-herramientas-trabajo::-webkit-scrollbar-thumb:hover {
+		        background: #F2ADA9;
 		    }
 		    
 		    .foto-item-herramientas{
@@ -599,13 +624,30 @@
 		        border-radius: 50%;
 		        background-color: white;
 		    
+		        /* SOMBRA */
+		        /* -webkit-box-shadow: 10px 9px 30px -12px rgba(0,0,0,0.6);
+		        -moz-box-shadow: 10px 9px 30px -12px rgba(0,0,0,0.6);
+		            box-shadow: 10px 9px 30px -12px rgba(0,0,0,0.6); */
+		            
+		        -webkit-transition: 1s linear;
+		        transition: 1s linear;
+		        
 		    }
+		    .foto-item-herramientas:hover{
+		      -webkit-box-shadow: 5px 5px 7px 2px rgba(0,0,0,0.47);
+		      box-shadow: 6px 6px 9px 2px rgba(0,0,0,0.47);
+		    }
+		        
+		        
+		    
+		    
 		    .real-foto-item-herramientas{
-		        height: 120px;
-		        width: 120px;
+		        height: 100px;
+		        width: 100px;
 		        padding: 20px;
 		        /* border:solid 1px yellow; */
 		        border-radius: 50%;
+		        background-origin: content-box;
 		    
 		        /* CENTRAR IMG EN UN DIV - APARECE */
 		        background-size: cover;
@@ -632,6 +674,7 @@
 		                width: 50px;
 		                height: 100%;
 		                cursor: pointer;
+		                z-index: 99;
 		          }
 		    
 		    .contenedor-img-herramientas{
@@ -660,7 +703,87 @@
 		    
 		    
 		
-		<!-- SERVICIOS -->
+		<!-- FOOTER -->
+		    <div class="contenedor-padre col-12 ">
+		        <div class="box-texto-uno ">
+		            <h3 class="texto-uno">Trabajemos juntos!</h3>
+		        </div>
+		        <div class="box-texto-dos">
+		            <h3 class="texto-dos">Tienes un proyecto? <br> Hagámoslo realidad!</h3>
+		        </div>
+		        <div class="formulario">
+		    
+		            <div class="container">
+		                <!-- FORMULARIO -->
+		                <form class="form-inline" action="/action_page.php">
+		    
+		                    <label for="uname"></label>
+		                    <input type="text" class="form-control mb-2 mr-sm-2" id="uname" placeholder="Nombre" name="uname" required>
+		                    
+		    
+		                    <label for="email" class="mr-sm-2"></label>
+		                    <input type="email" class="form-control mb-2 mr-sm-2" placeholder="Email" id="email">
+		                    
+		                </form>
+		    
+		                  <!-- COMENTARIOS -->
+		                    <div class="form-group">
+		                        <label for="comment">Comment:</label>
+		                        <textarea class="form-control" rows="5" id="comment"></textarea>
+		                    </div>
+		    
+		              <!-- BOTON ENVIAR -->
+		                  <button type="button" class="btn btn-light">Enviar</button>
+		                </form>
+		              </div>
+		              
+		            
+		        </div>
+		    
+		    </div>
+		    
+		    <style>
+		        .box-texto-uno{
+		            height: 50px;
+		            width: 40%;
+		            border: solid 1px white;
+		        }
+		        .texto-uno{
+		            
+		            font-size: 18px;
+		            font-family: "montserrat";
+		        }
+		        .box-texto-dos{
+		            margin-top: 15px;
+		            height: 50px;
+		            width: 40%;
+		            border: solid 1px blue;
+		        }
+		    
+		        .texto-dos{
+		            font-size: 16px !important;
+		            font-family:'Montserrat', sans-serif;
+		        }
+		        .formulario{
+		            margin-top: 15px;
+		            height: 200px;
+		            border: solid 1px yellow;
+		            width: 50%;
+		        }
+		        .contenedor-padre{
+		            padding-top: 30px;
+		            height: 400px;
+		            width: 100%;
+		            /* border: solid 1px red; */
+		            background-color: #ED928C;
+		            /* background: linear-gradient(#ffffff, #ED928C); */
+		    
+		        }
+		    </style>
+		    
+		    
+		    
+		    
 		
 		<!-- STAFF -->
 </body>
@@ -788,6 +911,28 @@ app.controller('ctl', function ($scope)
 	        {"nombre":"photoshop","foto":"img/logos-herramientas/pht.png"},
 	        {"nombre":"figma","foto":"img/logos-herramientas/figma.png"}
 	    ] 
+	
+	    $scope.avanzarHerramientasTrabajo = function(adelante)
+	    {
+	            componente = "#real-cont-herramientas-trabajo";
+	            aumento = 450;
+	            offset = $("#galeria").scrollLeft()
+	            console.log("AVANZANDO EN GALERIA: " + adelante + " -> " + offset);
+	
+	            if (adelante)
+	            {
+	                  offset += aumento;
+	                  $(componente).animate({ scrollLeft: '+=' + aumento }, 500);
+	            }
+	            else
+	            {
+	                  offset -= aumento;
+	                  $(componente).animate({ scrollLeft: '-=' + aumento }, 500);
+	            }
+	
+	            // $("#galeria").scrollLeft(offset)
+	      }
+	
 	
 	
     

@@ -15,13 +15,14 @@ Coleccion:{{arrHerramientas.length}}
             
 
             <!-- FLECHA IZQUIERDA --> 
-            <div class="flecha-gal flecha-izq flex-center-v flex-center ">
+            <div class="flecha-gal flecha-izq flex-center-v flex-center "
+            ng-click="avanzarHerramientasTrabajo(false)">
                 <i class="fa-solid fa-chevron-left"></i>
             </div>
 
 
             <!-- GALERIA DE HERRAMIENYTAS DE TRABAJOS -->
-            <div class="real-cont-herramientas-trabajo flex">
+            <div id="real-cont-herramientas-trabajo" class="real-cont-herramientas-trabajo flex ">
 
                 <div class="item-herramientas-trabajos"
                     ng-repeat="herramientaLoop in arrHerramientas">
@@ -29,7 +30,7 @@ Coleccion:{{arrHerramientas.length}}
                     <!-- <div class="sombra-foto-item-herramientas"> -->
     
                         
-                        <div class="foto-item-herramientas bsr p-3" >
+                        <div class="foto-item-herramientas  p-3" >
 
                             <div class="real-foto-item-herramientas"
                             style="background-image: url('{{herramientaLoop.foto}}')">
@@ -42,7 +43,8 @@ Coleccion:{{arrHerramientas.length}}
 
 
             <!-- FLECHA DERECHA -->
-            <div class="flecha-gal flecha-der flex-center-h flex-center">
+            <div class="flecha-gal flecha-der flex-center-h flex-center"
+            ng-click="avanzarHerramientasTrabajo(true)">
                 <i class="fa-solid fa-chevron-right"></i>
             </div>
     </div>
@@ -52,7 +54,7 @@ Coleccion:{{arrHerramientas.length}}
 
 <style>
 .cont-herramientas-trabajo{
-    overflow-x: scroll;
+    overflow-x: hidden;
     overflow-y: hidden;
     height: 150px;
     margin-bottom: 75px;
@@ -88,7 +90,30 @@ Coleccion:{{arrHerramientas.length}}
 .real-cont-herramientas-trabajo
 {
     /* width: 100px; */
+    overflow-y: hidden;
+    overflow-x: auto;
     width: calc(100% - 100px);
+}
+
+.real-cont-herramientas-trabajo::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+.real-cont-herramientas-trabajo::-webkit-scrollbar-track {
+    background: transparent;
+    width: 10px;
+    height: 10px;
+    border-radius: 50px;
+}
+
+.real-cont-herramientas-trabajo::-webkit-scrollbar-thumb {
+    background: #F2ADA9;
+    border-radius: 50px;
+}
+
+.real-cont-herramientas-trabajo::-webkit-scrollbar-thumb:hover {
+    background: #F2ADA9;
 }
 
 .foto-item-herramientas{
@@ -96,13 +121,30 @@ Coleccion:{{arrHerramientas.length}}
     border-radius: 50%;
     background-color: white;
 
+    /* SOMBRA */
+    /* -webkit-box-shadow: 10px 9px 30px -12px rgba(0,0,0,0.6);
+    -moz-box-shadow: 10px 9px 30px -12px rgba(0,0,0,0.6);
+        box-shadow: 10px 9px 30px -12px rgba(0,0,0,0.6); */
+        
+    -webkit-transition: 1s linear;
+    transition: 1s linear;
+    
 }
+.foto-item-herramientas:hover{
+  -webkit-box-shadow: 5px 5px 7px 2px rgba(0,0,0,0.47);
+  box-shadow: 6px 6px 9px 2px rgba(0,0,0,0.47);
+}
+    
+    
+
+
 .real-foto-item-herramientas{
-    height: 120px;
-    width: 120px;
+    height: 100px;
+    width: 100px;
     padding: 20px;
     /* border:solid 1px yellow; */
     border-radius: 50%;
+    background-origin: content-box;
 
     /* CENTRAR IMG EN UN DIV - APARECE */
     background-size: cover;
@@ -129,6 +171,7 @@ Coleccion:{{arrHerramientas.length}}
             width: 50px;
             height: 100%;
             cursor: pointer;
+            z-index: 99;
       }
 
 .contenedor-img-herramientas{
@@ -176,6 +219,27 @@ Coleccion:{{arrHerramientas.length}}
         {"nombre":"photoshop","foto":"img/logos-herramientas/pht.png"},
         {"nombre":"figma","foto":"img/logos-herramientas/figma.png"}
     ] 
+
+    $scope.avanzarHerramientasTrabajo = function(adelante)
+    {
+            componente = "#real-cont-herramientas-trabajo";
+            aumento = 450;
+            offset = $("#galeria").scrollLeft()
+            console.log("AVANZANDO EN GALERIA: " + adelante + " -> " + offset);
+
+            if (adelante)
+            {
+                  offset += aumento;
+                  $(componente).animate({ scrollLeft: '+=' + aumento }, 500);
+            }
+            else
+            {
+                  offset -= aumento;
+                  $(componente).animate({ scrollLeft: '-=' + aumento }, 500);
+            }
+
+            // $("#galeria").scrollLeft(offset)
+      }
 
 
 </script>
