@@ -1,14 +1,82 @@
-<div class="cont-segunda-foto div-to-img col-12" style="background-image: url('img/segunda-foto.png')">
+<div class="cont-segunda-foto div-to-img col-12 brg flex">
+ 
+ <div class="cont-texto col-7">
 
+    <div class="titulo">
+        <h2 class="titulo-descripcion"> Hola! Soy Luana</h2>
+
+    </div>
+
+    <div class="descripcion">
+        <p class="texto-descripcion">Cuento con más de tres años de experiencia en el campo. En mi trayectoria 
+            profesional, fundé mi propia empresa, la cual ha sido exitosa al contar con más 
+            de 20 clientes satisfechos, siempre buscando superar sus expectativas en cada 
+            proyecto. A lo largo de mi carrera, he demostrado mi pasión por el diseño gráfico 
+            y mi habilidad para comunicar ideas de manera efectiva a través de diseños  
+            atractivos y visualmente impactantes. 
+            Me especializo actualmente en frontend y Diseño UX/UI, buscando mejorar la 
+            experiencia de usuario a través de diseños atractivos y funcionales.</p>
+    
+    </div>
+
+ </div>
+
+    <div class="imagen-luana flex-center col-5">
+        <div class="contenedor-img-luana"></div>
+
+</div>
 </div>
 
 <style>
+.cont-texto{
+    border: solid 1px red;
+    
+}
+.titulo{
+    background-color: yellow;
+    height: 60px;
+    margin-top: 15px;
+    font-size: 20px;
+    font-family: 'Dancing Script', cursive;
+    color: #606060;
+}
+
+.descripcion{
+    background-color: blueviolet;
+    height: 200px;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+
+
+
+.imagen-luana{
+    border: solid 1px green;
+  
+}
+
+.contenedor-img-luana{
+    height: 300px;
+    background-image: url('img/luana-perfil.png');
+    width: 350px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    
+}
+
+
+
+
+
+
     .cont-segunda-foto
     {
         z-index: 999;
         height: 300px;
     }
-    .div-to-img
+    /* .div-to-img
     {
         background-size: contain;
         background-repeat: no-repeat;
@@ -25,7 +93,7 @@
         background-size: contain;
         background-repeat: no-repeat;
         background-position: right center;
-    }
+    } */
 </style>
 
 <script inyectado>
