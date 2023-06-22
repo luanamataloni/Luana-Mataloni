@@ -1,29 +1,21 @@
 <!-- 1 - BARRA DE MENU -->
-<div class="barra-rosa  flex ">
+<div class="barra-rosa  flex " >
 
-        <!-- CONTENEDOR LOGO -->
-    <div class="contenedor-izq col-3">
-        <img class="img-logo" src="../CASAS/img/logos-03.png">
-    </div>
+     
 
     <!-- CONTENEDOR ITEMS MENU -->
-    <div class="contenedor-mid col-6">
-        <include src="componentes-menu/item-medio.html"></include>
+    <div class="contenedor-mid col-9" ng-show="sm || md || lg || xl">
+        <include src="componentes-menu/item-menu.html"></include>
     </div>
 
-    <!-- CONTENEDOR ITEM LOGIN MENU -->
-    <div class="contenedor-der col-3">
-        <include src="./componentes-menu/login.html"></include>
+       <!-- CONTENEDOR LOGO -->
+       <div class="contenedor-izq col-3">
+        <img class="img-logo" src="./img/logo-luana.png">
     </div>
+
+  
 </div>
 
-
-
-
-<!-- 2 - CARTEL LOGIN: -->
-<include src="../componentes-menu/cartel-login.html"></include>
-
-<!-- 3 - TARJETAS DE SERVICIOS BRINDADOS: -->
 
 
 
@@ -46,7 +38,7 @@
     .contenedor-mid
     {
         height: 100%;
-        /* background-color: blue; */
+        
     }
     .contenedor-der
     {
@@ -56,5 +48,11 @@
 
     .img-logo{
         height: 100%;
+        padding-top: 7px;
+        padding-bottom: 7px;
     }
 </style>
+
+<script inyectado>
+    
+</script>

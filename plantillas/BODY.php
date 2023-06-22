@@ -1,1 +1,0 @@
-<body ng-app="app" ng-controller="ctl" ng-init="init()" ng-cloak class="body sin-padding col-12">

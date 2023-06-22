@@ -1,0 +1,32 @@
+
+<div class="flex">
+
+    <div class="barra-items-menu-xl flex flex-center flex-center-v col-6 offset-3 pointer"
+        ng-hide="xs">
+
+        <div class="item-menu-xl" ng-repeat="itemMenu in arrMenus"
+            ng-click="scrollearSuaveA(itemMenu.enlace)">
+        {{itemMenu.nombre}}
+    </div>
+
+    </div>
+
+    <div class="cont-logo flex flex-center-v col-3 ">
+        <div class="real-logo img-bg-contain col-12 "
+            style="background-image: url('./img/logo-luana.png');">
+        </div>
+    </div>
+</div>
+<style>
+    .barra-items-menu-xl
+    {
+        height: 60px;
+        overflow-y: hidden;
+    }
+    .item-menu-xl
+    {
+        color: white;
+        padding: 15px;
+        font-size: 20px;
+    }
+</style>
