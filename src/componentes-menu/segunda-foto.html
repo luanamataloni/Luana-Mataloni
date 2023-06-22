@@ -1,59 +1,106 @@
-<div class="cont-segunda-foto div-to-img col-12 brg flex">
+<div class="cont-segunda-foto div-to-img col-12  " id="quien-soy"  ng-class="{'true':'flex'}[lg ||  xl]">
  
- <div class="cont-texto col-7">
+    <div class="cont-texto col-12 col-lg-7 ">
 
-    <div class="titulo">
-        <h2 class="titulo-descripcion"> Hola! Soy Luana</h2>
+        <div class="titulo " ng-class="{'true':'flex-center', }[xs || sm || md ]" >
+            <h2 class="titulo-descripcion"> Hola! Soy Luana</h2>
+
+        </div>
+
+        <div class="descripcion">
+            <p class="texto-descripcion " ng-class="{'true':'texto-descripcion-largo','false':'texto-descripcion-corto' }[verMasLuana]">
+                Cuento con más de tres años de experiencia en el campo. En mi trayectoria 
+                profesional, fundé mi propia empresa, la cual ha sido exitosa al contar con más 
+                de 20 clientes satisfechos, siempre buscando superar sus expectativas en cada 
+                proyecto. A lo largo de mi carrera, he demostrado mi pasión por el diseño gráfico 
+                y mi habilidad para comunicar ideas de manera efectiva a través de diseños  
+                atractivos y visualmente impactantes. 
+                Me especializo actualmente en frontend y Diseño UX/UI, buscando mejorar la 
+                experiencia de usuario a través de diseños atractivos y funcionales.
+            </p>
+
+            <!-- BOTON SEGUIR LEYENDO -->
+            <div class="centrador-boton-ver-mas flex-center" ng-show="xs || sm || md">
+                <button class="boton-ver-mas" ng-click="verMasLuana = !verMasLuana">
+                    Seguir Leyendo
+                </button>
+
+                <div class="flecha-amarilla" ng-click="verMasLuana = !verMasLuana">
+                    <img class="imagen" src="./img/arrow-down.png">
+                </div>
+
+            </div>
+        </div>
 
     </div>
 
-    <div class="descripcion">
-        <p class="texto-descripcion">Cuento con más de tres años de experiencia en el campo. En mi trayectoria 
-            profesional, fundé mi propia empresa, la cual ha sido exitosa al contar con más 
-            de 20 clientes satisfechos, siempre buscando superar sus expectativas en cada 
-            proyecto. A lo largo de mi carrera, he demostrado mi pasión por el diseño gráfico 
-            y mi habilidad para comunicar ideas de manera efectiva a través de diseños  
-            atractivos y visualmente impactantes. 
-            Me especializo actualmente en frontend y Diseño UX/UI, buscando mejorar la 
-            experiencia de usuario a través de diseños atractivos y funcionales.</p>
-    
-    </div>
-
- </div>
-
-    <div class="imagen-luana flex-center col-5">
+    <div class="imagen-luana flex-center col-12 col-lg-5"
+        ng-class="{'true':'mg-75', }[xs || sm || md ]">
         <div class="contenedor-img-luana"></div>
-
-</div>
+    </div>
 </div>
 
 <style>
-.cont-texto{
-    border: solid 1px red;
-    
-}
+    .mt-75
+    {
+        margin-top: 75px;
+    }
+    .texto-descripcion
+    {
+        overflow-y: hidden;
+        transition: 1s;
+    }
+    .texto-descripcion-corto
+    {
+        height: 150px;
+        transition: 1s;
+    }
+    .texto-descripcion-largo
+    {
+        height: auto;
+        transition: 1s;
+    }
+    .boton-ver-mas
+    {
+        background-color: #ED928C;
+        color:white;
+        padding: 15px;
+        border-radius: 50px;
+        box-shadow: none;
+        border: none;
+        
+        
+    }
+
+    .flecha-amarilla{
+        background-color: #FFE286;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        margin-top: 60px;
+        position: absolute;
+        cursor: pointer;
+    }
+
+
+
+
 .titulo{
-    background-color: yellow;
+    /* background-color: yellow; */
     height: 60px;
     margin-top: 15px;
     font-size: 20px;
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Montserrat Alternates', sans-serif;
     color: #606060;
 }
 
 .descripcion{
-    background-color: blueviolet;
-    height: 200px;
+    /* background-color: blueviolet; */
+    /* height: 200px; */
     margin-top: 10px;
     font-size: 16px;
-}
-
-
-
-
-.imagen-luana{
-    border: solid 1px green;
-  
+    padding-bottom: 15px;
+    font-family: 'Montserrat Alternates', sans-serif;
 }
 
 .contenedor-img-luana{
@@ -65,6 +112,9 @@
     background-position: center center;
     
 }
+.imagen-luana{
+    padding-top: 30px;
+}
 
 
 
@@ -74,7 +124,9 @@
     .cont-segunda-foto
     {
         z-index: 999;
-        height: 300px;
+        /* height: 300px; */
+        padding-top: 30px;
+        padding-bottom: 30px;
     }
     /* .div-to-img
     {
@@ -98,8 +150,5 @@
 
 <script inyectado>
 
-</script>
-
-<script inyectado>
-    
+$scope.verMasLuana = false;
 </script>

@@ -1,0 +1,131 @@
+<div class="menu-nuevo col-12 sin-padding" style="background-color:#ED928C"
+    ng-class="{'true':'menu-alto-auto', 'false':'menu-alto-50'}[xs]">
+
+    <div class="cont-menu flex-center-v">
+
+        <div class="col-12 sin-padding" ng-hide="xs">
+            <include src="./componentes-menu/items-menu-xl.html"></include>
+        </div>
+
+        <div class="col-12 sin-padding flex" ng-show="xs">
+            <div class="cont-burger flex flex-center-v col-6 pointer"
+                ng-show="xs"
+                ng-click="abrirMenu()">
+
+                <i class="fa-sharp fa-solid fa-bars white"></i>
+                <div class="h-menu flex-center-v white">
+                    Menu 
+                    <!-- {{deboMostrarMenu}} -->
+                </div>
+            </div>
+            <div class="cont-logo flex flex-center-v col-6 pointer" ng-click="openNewTab('https://www.linkedin.com/in/luana-mataloni-778521225/')">
+                <div class="real-logo img-bg-contain col-12 "
+                    style="background-image: url('./img/logo-luana.png');">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- LISTADO ITEMS MENU XS -->
+    <div class="cont-items-menu-xs col-12" ng-show="xs && deboMostrarMenu">
+
+        <div class="item-menu-xs" ng-repeat="itemMenu in arrMenus"
+            ng-click="scrollearSuaveA(itemMenu.enlace)">
+            {{itemMenu.nombre}}
+        </div>
+    </div>
+</div>
+
+
+<style>
+    
+    .menu-nuevo
+    {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        z-index: 99999999;
+    }
+    .menu-alto-50
+    {
+        height: 60px;
+    }
+    .menu-alto-auto
+    {
+        height: auto;
+    }
+    .cont-burger
+    {
+        /* padding-top: 15px; */
+    }
+    .cont-logo{
+        height: 60px;
+    }
+    .real-logo{
+        height:55px;
+    }
+    .h-menu
+    {
+        padding-left: 10px;
+        font-size: 18px;
+        font-family: 'Montserrat', sans-serif;
+    }
+    .white
+    {
+        color: white;
+    }
+    .item-menu-xs
+    {
+        color: white;
+        padding: 15px;
+        font-size: 24px;
+        cursor: pointer;
+    }
+</style>
+
+<script inyectado>
+    $scope.arrMenus = [
+        {"id":1 , "nombre":"¿Quien soy?","enlace":"quien-soy"},
+        {"id":2 , "nombre":"Portafolio","enlace":"portafolio"},
+        {"id":3 , "nombre":"Herramientas","enlace":"herramientas"},
+        {"id":4 , "nombre":"Contacto","enlace":"contacto"}
+    ];
+    
+    $scope.deboMostrarMenu =  false;
+
+    $scope.abrirMenu = function()
+    {
+        $scope.deboMostrarMenu = ! $scope.deboMostrarMenu;
+
+        $scope.$evalAsync();
+    }
+
+
+    $scope.scrollearSuaveA = function (idComponenteAScrolear)
+    {
+        if (!idComponenteAScrolear.startsWith("#"))
+        {
+            idComponenteAScrolear = "#" + idComponenteAScrolear;
+        }
+        altoDeLaPagina = $(window).height();
+        console.log("altoDeLaPagina :" + altoDeLaPagina);
+        console.log("SCROLEANDO SUAVE A :" + idComponenteAScrolear);
+        margen = 0;
+        posComponente = parseInt($(idComponenteAScrolear).offset().top);
+        if (posComponente < 0)
+        {
+            posComponente = 0;
+        }
+
+        posActual = window.scrollY;
+        console.log("SCROLEO HASTA y = " + posComponente);
+
+        $scope.abrirMenu();
+
+        $('html, body').animate(
+            {
+                scrollTop: posComponente
+            }, 1000);
+    }
+
+</script>

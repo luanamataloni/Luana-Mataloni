@@ -46,180 +46,124 @@
 		</header>
 		
 		<!-- BARRA MENU -->
-		    <!-- 1 - BARRA DE MENU -->
-		    <div class="barra-rosa  flex ">
+		    <div class="menu-nuevo col-12 sin-padding" style="background-color:#ED928C"
+		        ng-class="{'true':'menu-alto-auto', 'false':'menu-alto-50'}[xs]">
 		    
-		            <!-- CONTENEDOR LOGO -->
-		        <div class="contenedor-izq col-1">
-		            <!-- <img class="img-logo" src="/img/logos-03.png"> -->
-		        </div>
+		        <div class="cont-menu flex-center-v">
 		    
-		        <!-- CONTENEDOR ITEMS MENU -->
-		        <div class="contenedor-mid col-10">
-		        <div class="padre flex-between flex-center-v">
-		            <div class="item">¿QUIEN SOY?</div>
-		            <div class="item">PORTAFOLIO</div>
-		            <div class="item">HERRAMIENTAS</div>
-		            <div class="item">CONTACTO</div>
-		        </div>
+		            <div class="col-12 sin-padding" ng-hide="xs">
 		        
-		        <style>
-		        .item{
-		            padding-left: 25px;
-		            padding-right: 25px;
-		            padding-top: 15px;
-		            color: white;
-		            font-size: 16px;
-		            font-family: 'Abril Fatface', cursive;
-		            
-		            
-		        }
-		        .padre{
-		            padding-top: 10px;
-		        }
+		        <div class="flex">
 		        
-		        </style>
+		            <div class="barra-items-menu-xl flex flex-center flex-center-v col-6 offset-3 pointer"
+		                ng-hide="xs">
 		        
-		        </div>
-		    
-		        <!-- CONTENEDOR ITEM LOGIN MENU -->
-		        <!-- <div class="contenedor-der col-1">
-		        <div class="caja-login flex-between flex-center-v">
-		            <div class="login-in button col-6 flex-center-h">
-		        
-		                <!-- BOTON INGRESAR -->
-		                <!-- <button class="btn btn-secondary" ng-click="mostrarCartelUsuario()">
-		                    <i class="fa-solid fa-user"></i>
-		                    Ingresar
-		                </button>
-		        
-		        
-		                <div class="login-up button col-6">
-		        
-		                    {{mostrarCartel}}
-		                </div> -->
-		        
-		                
-		        
+		                <div class="item-menu-xl" ng-repeat="itemMenu in arrMenus"
+		                    ng-click="scrollearSuaveA(itemMenu.enlace)">
+		                {{itemMenu.nombre}}
+		            </div>
 		        
 		            </div>
-		            
+		        
+		            <div class="cont-logo flex flex-center-v col-3 ">
+		                <div class="real-logo img-bg-contain col-12 "
+		                    style="background-image: url('./img/logo-luana.png');">
+		                </div>
+		            </div>
 		        </div>
-		        
-		        
-		        
 		        <style>
-		            
-		            .login-in {
-		                /* background-color: black; */
-		                height: 100%;
-		        
+		            .barra-items-menu-xl
+		            {
+		                height: 60px;
+		                overflow-y: hidden;
 		            }
-		            .login-up {
-		                /* background-color: blue; */
-		                height: 100%;
-		                
+		            .item-menu-xl
+		            {
+		                color: white;
+		                padding: 15px;
+		                font-size: 20px;
 		            }
-		            .caja-login {
-		                height: 70px;
-		                /* background-color: white; */
-		        
-		            }
-		        </style>
-		        
-		        </div> -->
+		        </style>		            </div>
+		    
+		            <div class="col-12 sin-padding flex" ng-show="xs">
+		                <div class="cont-burger flex flex-center-v col-6 pointer"
+		                    ng-show="xs"
+		                    ng-click="abrirMenu()">
+		    
+		                    <i class="fa-sharp fa-solid fa-bars white"></i>
+		                    <div class="h-menu flex-center-v white">
+		                        Menu 
+		                        <!-- {{deboMostrarMenu}} -->
+		                    </div>
+		                </div>
+		                <div class="cont-logo flex flex-center-v col-6 pointer" ng-click="openNewTab('https://www.linkedin.com/in/luana-mataloni-778521225/')">
+		                    <div class="real-logo img-bg-contain col-12 "
+		                        style="background-image: url('./img/logo-luana.png');">
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		    
+		        <!-- LISTADO ITEMS MENU XS -->
+		        <div class="cont-items-menu-xs col-12" ng-show="xs && deboMostrarMenu">
+		    
+		            <div class="item-menu-xs" ng-repeat="itemMenu in arrMenus"
+		                ng-click="scrollearSuaveA(itemMenu.enlace)">
+		                {{itemMenu.nombre}}
+		            </div>
+		        </div>
 		    </div>
 		    
 		    
-		    
-		    
-		    <!-- 2 - CARTEL LOGIN: -->
-		        <div class="cartelito" ng-show="mostrarCartel"> 
-		            <div class="form-group">
-		              <label for="usr">Nombre Usuario:</label>
-		              <input type="text" class="form-control" ng-model="correo">
-		                <br>
-		                El Email que escribiste es: 
-		              {{correo}}
-		            </div>
-		        
-		            <div class="form-group">
-		              <label for="pwd">Contraseña:</label>
-		              <input type="password" class="form-control" ng-model="contrasena">
-		              <br>
-		              Tu contraseña es:
-		              {{contrasena}}
-		            </div>
-		        
-		        
-		            <button class="btn btn-info" ng-click="guardarUsuario()" >
-		                Ingresar
-		            </button>
-		        
-		            <button class="btn btn-danger" ng-click="mostrarCartelUsuario()">
-		                Cancelar
-		            </button>
-		        </div>
-		        
-		        
-		        <style>
-		        .cartelito {
-		            position: absolute;
-		            top: 20%;
-		            left: 30%;
-		            right: 30%;
-		            
-		            border: solid 1px lightgrey;
-		            border-radius: 20px;
-		        
-		            padding: 25px;
-		        
-		            -webkit-box-shadow: 6px 3px 21px 2px rgba(181,181,181,1);
-		            -moz-box-shadow: 6px 3px 21px 2px rgba(181,181,181,1);
-		            box-shadow: 6px 3px 21px 2px rgba(181,181,181,1);
-		        }
-		        </style>
-		        
-		    
-		    <!-- 3 - TARJETAS DE SERVICIOS BRINDADOS: -->
-		    
-		    
-		    
 		    <style>
-		    
-		    
-		        .barra-rosa 
+		        
+		        .menu-nuevo
 		        {
-		            height: 70px;
-		            background-color: #ED928C;
-		            /* border: solid 1px rebeccapurple; */
-		           
-		    
+		            position: fixed;
+		            top: 0px;
+		            left: 0px;
+		            z-index: 99999999;
 		        }
-		        .contenedor-izq
+		        .menu-alto-50
 		        {
-		            height: 100%;
-		            /* background-color: green; */
+		            height: 60px;
 		        }
-		        .contenedor-mid
+		        .menu-alto-auto
 		        {
-		            height: 100%;
-		            
+		            height: auto;
 		        }
-		        .contenedor-der
+		        .cont-burger
 		        {
-		            height: 100%;
-		            /* background-color: rgb(255, 204, 0); */
+		            /* padding-top: 15px; */
 		        }
-		    
-		        .img-logo{
-		            height: 100%;
+		        .cont-logo{
+		            height: 60px;
+		        }
+		        .real-logo{
+		            height:55px;
+		        }
+		        .h-menu
+		        {
+		            padding-left: 10px;
+		            font-size: 18px;
+		            font-family: 'Montserrat', sans-serif;
+		        }
+		        .white
+		        {
+		            color: white;
+		        }
+		        .item-menu-xs
+		        {
+		            color: white;
+		            padding: 15px;
+		            font-size: 24px;
+		            cursor: pointer;
 		        }
 		    </style>
 		    
 		
 		<!-- FOTO PRINCIPAL -->
-		    <div class="banner col-12 sin-padding">
+		    <div class="banner col-12 sin-padding" style="padding-top: 60px" ng-show="sm || md || lg || xl">
 		        <!-- PRIMER FOTO PRINCIPAL -->
 		            <img class="imagen" src="./img/ban-nuevo.png">
 		    </div>
@@ -227,7 +171,6 @@
 		    <style>
 		        .luana{
 		            width: 100%;
-		            border: solid 1px red;
 		            height: 200px;
 		        }
 		        .imagen{
@@ -260,64 +203,133 @@
 		    
 		    </style>
 		    
-		
-		<!-- SEGUNDA FOTO: -->
-		    <div class="cont-segunda-foto div-to-img col-12 brg flex">
-		     
-		     <div class="cont-texto col-7">
+		    <div class="banner-xs bsb " ng-hide="sm || md || lg || xl">
 		    
-		        <div class="titulo">
-		            <h2 class="titulo-descripcion"> Hola! Soy Luana</h2>
+		      <img class="banner-xs-img" src="./img/banner-xs.png">
 		    
-		        </div>
-		    
-		        <div class="descripcion">
-		            <p class="texto-descripcion">Cuento con más de tres años de experiencia en el campo. En mi trayectoria 
-		                profesional, fundé mi propia empresa, la cual ha sido exitosa al contar con más 
-		                de 20 clientes satisfechos, siempre buscando superar sus expectativas en cada 
-		                proyecto. A lo largo de mi carrera, he demostrado mi pasión por el diseño gráfico 
-		                y mi habilidad para comunicar ideas de manera efectiva a través de diseños  
-		                atractivos y visualmente impactantes. 
-		                Me especializo actualmente en frontend y Diseño UX/UI, buscando mejorar la 
-		                experiencia de usuario a través de diseños atractivos y funcionales.</p>
-		        
-		        </div>
-		    
-		     </div>
-		    
-		        <div class="imagen-luana flex-center col-5">
-		            <div class="contenedor-img-luana"></div>
-		    
-		    </div>
 		    </div>
 		    
 		    <style>
-		    .cont-texto{
-		        border: solid 1px red;
-		        
-		    }
+		      .banner-xs-img
+		      {
+		        width: 100%;
+		        height: auto;
+		         /* 250px;    */
+		         margin-top: 49px;
+		      }
+		        /* .banner-xs
+		        {
+		          height: 250px;   
+		        } */
+		    </style>
+		    
+		    
+		    
+		
+		<!-- SEGUNDA FOTO: -->
+		    <div class="cont-segunda-foto div-to-img col-12  " id="quien-soy"  ng-class="{'true':'flex'}[lg ||  xl]">
+		     
+		        <div class="cont-texto col-12 col-lg-7 ">
+		    
+		            <div class="titulo " ng-class="{'true':'flex-center', }[xs || sm || md ]" >
+		                <h2 class="titulo-descripcion"> Hola! Soy Luana</h2>
+		    
+		            </div>
+		    
+		            <div class="descripcion">
+		                <p class="texto-descripcion " ng-class="{'true':'texto-descripcion-largo','false':'texto-descripcion-corto' }[verMasLuana]">
+		                    Cuento con más de tres años de experiencia en el campo. En mi trayectoria 
+		                    profesional, fundé mi propia empresa, la cual ha sido exitosa al contar con más 
+		                    de 20 clientes satisfechos, siempre buscando superar sus expectativas en cada 
+		                    proyecto. A lo largo de mi carrera, he demostrado mi pasión por el diseño gráfico 
+		                    y mi habilidad para comunicar ideas de manera efectiva a través de diseños  
+		                    atractivos y visualmente impactantes. 
+		                    Me especializo actualmente en frontend y Diseño UX/UI, buscando mejorar la 
+		                    experiencia de usuario a través de diseños atractivos y funcionales.
+		                </p>
+		    
+		                <!-- BOTON SEGUIR LEYENDO -->
+		                <div class="centrador-boton-ver-mas flex-center" ng-show="xs || sm || md">
+		                    <button class="boton-ver-mas" ng-click="verMasLuana = !verMasLuana">
+		                        Seguir Leyendo
+		                    </button>
+		    
+		                    <div class="flecha-amarilla" ng-click="verMasLuana = !verMasLuana">
+		                        <img class="imagen" src="./img/arrow-down.png">
+		                    </div>
+		    
+		                </div>
+		            </div>
+		    
+		        </div>
+		    
+		        <div class="imagen-luana flex-center col-12 col-lg-5"
+		            ng-class="{'true':'mg-75', }[xs || sm || md ]">
+		            <div class="contenedor-img-luana"></div>
+		        </div>
+		    </div>
+		    
+		    <style>
+		        .mt-75
+		        {
+		            margin-top: 75px;
+		        }
+		        .texto-descripcion
+		        {
+		            overflow-y: hidden;
+		            transition: 1s;
+		        }
+		        .texto-descripcion-corto
+		        {
+		            height: 150px;
+		            transition: 1s;
+		        }
+		        .texto-descripcion-largo
+		        {
+		            height: auto;
+		            transition: 1s;
+		        }
+		        .boton-ver-mas
+		        {
+		            background-color: #ED928C;
+		            color:white;
+		            padding: 15px;
+		            border-radius: 50px;
+		            box-shadow: none;
+		            border: none;
+		            
+		            
+		        }
+		    
+		        .flecha-amarilla{
+		            background-color: #FFE286;
+		            width: 35px;
+		            height: 35px;
+		            border-radius: 50%;
+		            margin-top: 60px;
+		            position: absolute;
+		            cursor: pointer;
+		        }
+		    
+		    
+		    
+		    
 		    .titulo{
-		        background-color: yellow;
+		        /* background-color: yellow; */
 		        height: 60px;
 		        margin-top: 15px;
 		        font-size: 20px;
-		        font-family: 'Dancing Script', cursive;
+		        font-family: 'Montserrat Alternates', sans-serif;
 		        color: #606060;
 		    }
 		    
 		    .descripcion{
-		        background-color: blueviolet;
-		        height: 200px;
+		        /* background-color: blueviolet; */
+		        /* height: 200px; */
 		        margin-top: 10px;
 		        font-size: 16px;
-		    }
-		    
-		    
-		    
-		    
-		    .imagen-luana{
-		        border: solid 1px green;
-		      
+		        padding-bottom: 15px;
+		        font-family: 'Montserrat Alternates', sans-serif;
 		    }
 		    
 		    .contenedor-img-luana{
@@ -329,6 +341,9 @@
 		        background-position: center center;
 		        
 		    }
+		    .imagen-luana{
+		        padding-top: 30px;
+		    }
 		    
 		    
 		    
@@ -338,7 +353,9 @@
 		        .cont-segunda-foto
 		        {
 		            z-index: 999;
-		            height: 300px;
+		            /* height: 300px; */
+		            padding-top: 30px;
+		            padding-bottom: 30px;
 		        }
 		        /* .div-to-img
 		        {
@@ -360,13 +377,12 @@
 		        } */
 		    </style>
 		    
-		    
-		        
 		
 		
 		<!-- TRABAJOS -->
 		    <!-- IMAGEN NOMBRE PORTAFOLIO -->
-		    <div class="contenedor-logo-portafolio sin-padding flex-center-v flex-center ">
+		    <div class="contenedor-logo-portafolio sin-padding flex-center-v flex-center "
+		          id="portafolio">
 		          <div class="titulo-portafolio-img flex-center-v flex-center-h flex-center flex pt-3 pb-3">
 		              <img src="./img/portafolio.png" class="img-portafolio">
 		          </div>
@@ -382,11 +398,18 @@
 		    
 		    
 		          <!-- FLECHA IZQUIERDA -->
-		          <div class="flecha-galeria  flecha-izq-galeria  flex-center-v flex-center" ng-click="avanzarGaleria(false)">
+		          <div class="flecha-galeria  flecha-izq-galeria  flex-center-v flex-center "
+		           ng-click="avanzarGaleria(false)"
+		           ng-hide="xs || sm"
+		           >
 		                <i class="fa-solid fa-chevron-left"></i>
 		          </div>
+		    
+		    
 		          <!-- ITEMS GALERIA -->
-		          <div class="cont-items-galeria flex" id="galeria">
+		          <div class="cont-items-galeria flex "
+		          ng-class="{'true':'ancho-100','false':'ancho-dinamico'}[xs || sm ]" 
+		          id="galeria">
 		                <div class="separador-item-galeria" ng-repeat="itemLoop in arrGaleria">
 		                      <div class="item-galeria" ng-click="abrirItemGaleria(itemLoop)">
 		                            <div class="img-item-galeria" style="background-image: url('{{itemLoop.foto}}')">
@@ -405,7 +428,9 @@
 		          </div>
 		    
 		          <!-- FLECHA DERECHA -->
-		          <div class="flecha-galeria flecha-der-galeria  flex-center-v flex-center" ng-click="avanzarGaleria(true)">
+		          <div class="flecha-galeria flecha-der-galeria  flex-center-v flex-center" 
+		          ng-click="avanzarGaleria(true)"
+		          ng-hide="xs || sm">
 		                <i class="fa-solid fa-chevron-right"></i>
 		          </div>
 		    </div>
@@ -444,6 +469,7 @@
 		                height: 80px;
 		                width: 100%;
 		                /* border: solid 1px blue;     */
+		                padding-top: 90px;
 		          }
 		          .titulo-portafolio-img{
 		                height: 100%;
@@ -459,13 +485,12 @@
 		    
 		          .contenedor-galeria {
 		                /* border: solid 1px blue; */
-		                height: 500px;
-		                padding-top: 20px;
+		                /* height: 500px; */
+		                padding-top: 90px;
 		                
 		          }
 		    
 		          .cont-items-galeria {
-		                width: calc(100% - 100px);
 		                background-color: white;
 		    
 		                overflow-x: scroll;
@@ -475,6 +500,14 @@
 		                padding-left: 45px;
 		    
 		                
+		          }
+		          .ancho-dinamico
+		          {
+		                width: calc(100% - 100px);
+		          }
+		          .ancho-100
+		          {
+		                width: 100% ;
 		          }
 		    
 		          .separador-item-galeria {
@@ -568,16 +601,18 @@
 		          }
 		    </style>
 		
+		<!-- SERVICIOS -->
+		
 		<!-- GALERIA HERRAMIENTAS DE TRABAJO -->
 		    <!-- CONTENEDOR DE IMAGEN TEXTO HERRAMIENTAS -->
-		    <div class="contenedor-img-herramientas col-12 sin-padding flex-center-v flex-center">
+		    <div class="contenedor-img-herramientas col-12 sin-padding flex-center-v flex-center"
+		        id="herramientas">
 		        <div class="titulo-herramientas-img flex-center-v flex-center-h flex-center flex">
 		            <img src="./img/herramientas.png" class="img-herramientas">
 		        </div>
 		    </div>
 		    
 		    
-		    Coleccion:{{arrHerramientas.length}}
 		    <div class="contenedor-de-todo">
 		    
 		        <div class="cont-herramientas-trabajo  col-12 sin-padding flex" 
@@ -710,17 +745,20 @@
 		    
 		    
 		    .real-foto-item-herramientas{
+		       
 		        height: 100px;
 		        width: 100px;
 		        padding: 20px;
 		        /* border:solid 1px yellow; */
 		        border-radius: 50%;
 		        background-origin: content-box;
+		        
 		    
 		        /* CENTRAR IMG EN UN DIV - APARECE */
 		        background-size: cover;
 		        background-repeat: no-repeat;
 		        background-position: center center;
+		        
 		    
 		    }
 		    
@@ -729,12 +767,15 @@
 		    }
 		    .item-herramientas-trabajos
 		    {
-		        height: 150px;
-		        width: 150px;
+		        height: 130px;
+		        width: 130px;
 		        margin-right: 15px;
 		        cursor: pointer; 
+		        
 		        /* border: solid 1px blue; */
 		        /* padding-left: 15px; */
+		        
+		        
 		    }
 		    
 		    .flecha-gal {
@@ -748,7 +789,8 @@
 		    .contenedor-img-herramientas{
 		        height: 80px;
 		        /* border: solid 1px blue; */
-		        padding-top: 80px;
+		        padding-top: 120px;
+		       
 		        
 		        
 		    }
@@ -772,81 +814,110 @@
 		    
 		
 		<!-- FOOTER -->
-		    <div class="contenedor-padre col-12 ">
-		        <div class="box-texto-uno ">
-		            <h3 class="texto-uno">Trabajemos juntos!</h3>
-		        </div>
-		        <div class="box-texto-dos">
-		            <h3 class="texto-dos">Tienes un proyecto? <br> Hagámoslo realidad!</h3>
-		        </div>
-		        <div class="formulario">
+		    <div class="contenedor-padre col-12 flex-center " id="contacto">
 		    
-		            <div class="container">
-		                <!-- FORMULARIO -->
-		                <form class="form-inline" action="/action_page.php">
+		        <div class="centrador-footer col-12 col-lg-6 bsr">
 		    
-		                    <label for="uname"></label>
-		                    <input type="text" class="form-control mb-2 mr-sm-2" id="uname" placeholder="Nombre" name="uname" required>
-		                    
+		        
+		            <div class="col-12">
 		    
-		                    <label for="email" class="mr-sm-2"></label>
-		                    <input type="email" class="form-control mb-2 mr-sm-2" placeholder="Email" id="email">
-		                    
-		                </form>
+		                <div class="box-texto-uno bsr col-12 sin-padding">
+		                    <h3 class="texto-uno col-12 sin-padding">Trabajemos juntos!</h3>
+		                </div>
+		                <div class="box-texto-dos">
+		                    <h3 class="texto-dos">Tienes un proyecto? <br> Hagámoslo realidad!</h3>
+		                </div>
 		    
-		                  <!-- COMENTARIOS -->
-		                    <div class="form-group">
-		                        <label for="comment">Comment:</label>
-		                        <textarea class="form-control" rows="5" id="comment"></textarea>
+		                <div class="formulario">
+		    
+		                    <div class="container">
+		    
+		                        <!-- FORMULARIO -->
+		                        <form class="form-inline" action="/action_page.php">
+		    
+		                            <div class="col-12 sin-padding flex">
+		                                <div class="col-6 sin-padding-left">
+		    
+		                                    <label for="uname"></label>
+		                                    <input type="text" class="form-control mb-2 mr-sm-2" id="uname" placeholder="Nombre" name="uname" required>
+		                                    
+		                                </div>
+		                                <div class="col-6">
+		    
+		                                    <label for="email" class="mr-sm-2"></label>
+		                                    <input type="email" class="form-control mb-2 mr-sm-2" placeholder="Email" id="email">
+		    
+		                                </div>
+		                            </div>
+		    
+		    
+		                            
+		                        </form>
+		    
+		                        <!-- COMENTARIOS -->
+		                            <div class="form-group">
+		                                <label for="comment">Comment:</label>
+		                                <textarea class="form-control" rows="5" id="comment"></textarea>
+		                            </div>
+		    
+		                    <!-- BOTON ENVIAR -->
+		                        <button type="button" class="btn btn-light">Enviar</button>
+		                        </form>
 		                    </div>
-		    
-		              <!-- BOTON ENVIAR -->
-		                  <button type="button" class="btn btn-light">Enviar</button>
-		                </form>
-		              </div>
-		              
-		            
+		                    
+		                    
+		                </div>
+		            </div>
 		        </div>
-		    
 		    </div>
 		    
 		    <style>
 		        .box-texto-uno{
-		            height: 50px;
+		            height: 30px;
 		            width: 40%;
-		            border: solid 1px white;
+		            /* border: solid 1px white; */
+		            margin-left: 40px;
 		        }
 		        .texto-uno{
 		            
-		            font-size: 18px;
-		            font-family: "montserrat";
+		            font-size: 22px;
+		            font-family: 'Montserrat Alternates', sans-serif;
+		            color: white;
 		        }
 		        .box-texto-dos{
 		            margin-top: 15px;
 		            height: 50px;
 		            width: 40%;
-		            border: solid 1px blue;
+		            /* border: solid 1px blue; */
+		            margin-left: 40px;
 		        }
 		    
 		        .texto-dos{
-		            font-size: 16px !important;
-		            font-family:'Montserrat', sans-serif;
+		            font-size: 20px; 
+		            font-family:'Montserrat Alternates', sans-serif;
+		            color: white;
 		        }
 		        .formulario{
-		            margin-top: 15px;
+		            margin-top: 30px;
 		            height: 200px;
-		            border: solid 1px yellow;
+		            /* border: solid 1px yellow; */
 		            width: 50%;
+		            margin-left: 30px;
+		            font-family:'Montserrat Alternates', sans-serif;
+		            color: white;
 		        }
 		        .contenedor-padre{
 		            padding-top: 30px;
-		            height: 400px;
+		            height: 600px;
 		            width: 100%;
 		            /* border: solid 1px red; */
 		            background-color: #ED928C;
 		            /* background: linear-gradient(#ffffff, #ED928C); */
 		    
 		        }
+		        textarea {
+		      resize: none;
+		    }
 		    </style>
 		    
 		    
@@ -858,55 +929,54 @@
 <script>
 app = angular.module('app', ['ngSanitize']);
 app.controller('ctl', function ($scope)
-{	
-	    // VARIABLE
-	    $scope.mostrarCartel=false;
+{	    $scope.arrMenus = [
+	        {"id":1 , "nombre":"¿Quien soy?","enlace":"quien-soy"},
+	        {"id":2 , "nombre":"Portafolio","enlace":"portafolio"},
+	        {"id":3 , "nombre":"Herramientas","enlace":"herramientas"},
+	        {"id":4 , "nombre":"Contacto","enlace":"contacto"}
+	    ];
+	    
+	    $scope.deboMostrarMenu =  false;
 	
-	
-	    // FUNCION
-	    $scope.mostrarCartelUsuario = function()
+	    $scope.abrirMenu = function()
 	    {
-	        $scope.mostrarCartel=!$scope.mostrarCartel;
+	        $scope.deboMostrarMenu = ! $scope.deboMostrarMenu;
+	
+	        $scope.$evalAsync();
 	    }
 	
-	    $scope.guardarUsuario=function(){
-	        // alert("Estoy guardando el usuario" + " "+  $scope.correo + " " + $scope.contrasena)
 	
-	        $scope.cargando = false;
-	        $.ajax(
+	    $scope.scrollearSuaveA = function (idComponenteAScrolear)
+	    {
+	        if (!idComponenteAScrolear.startsWith("#"))
 	        {
-	            url:"autenticarse.php",
-	            data:
-	            {
-	                "mail":$scope.correo,
-	                "clave":$scope.contrasena
-	            },
-	            beforeSend: function (xhr) 
-	            {
-	                $scope.cargando = true;
-	            },
-	            success: function (resultado, textStatus, jqXHR) 
-	            {
-	                if(resultado == true)
-	                {
-	                    alert("INGRESASTE A LA WEB");
-	                }
-	                else
-	                {
-	                    alert("USUARIO O CLAVE INVALIDAS")
-	                }
-	                $scope.cargando = false;
-	                $scope.$evalAsync();
-	            }
+	            idComponenteAScrolear = "#" + idComponenteAScrolear;
+	        }
+	        altoDeLaPagina = $(window).height();
+	        console.log("altoDeLaPagina :" + altoDeLaPagina);
+	        console.log("SCROLEANDO SUAVE A :" + idComponenteAScrolear);
+	        margen = 0;
+	        posComponente = parseInt($(idComponenteAScrolear).offset().top);
+	        if (posComponente < 0)
+	        {
+	            posComponente = 0;
+	        }
 	
-	        });
+	        posActual = window.scrollY;
+	        console.log("SCROLEO HASTA y = " + posComponente);
+	
+	        $scope.abrirMenu();
+	
+	        $('html, body').animate(
+	            {
+	                scrollTop: posComponente
+	            }, 1000);
 	    }
+	
 	    
 	
 	
-	    
-	    
-	
+	$scope.verMasLuana = false;
 	
 	      $(document).ready(function ()
 	      {
@@ -919,13 +989,7 @@ app.controller('ctl', function ($scope)
 	            { "nombre": "", "foto": "./img/foto-portafolio/noncello.png", "pdf": "./pdfs/noncello.pdf", "texto": "jasdjfklañsdfklajsdklf" },
 	            { "nombre": "Easy Veggie", "foto": "./img/foto-portafolio/easyveggie.png", "pdf": "./pdfs/easy-veggie.pdf", "texto": "jasdjfklañsdfklajsdklf" },
 	            { "nombre": "Manual de Marca", "foto": "./img/foto-portafolio/manualvilche.png", "pdf": "./pdfs/manual-vilche.pdf", "texto": "" },
-	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
-	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
-	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
-	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
-	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
-	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
-	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
+	            { "nombre": "Manual de Marca", "foto": "./img/foto-portafolio/lowther.png", "pdf": "./pdfs/lowther.pdf", "texto": "cvv" },
 	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
 	            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" }
 	      ]
@@ -975,9 +1039,8 @@ app.controller('ctl', function ($scope)
 	        {"nombre":"Illustator","foto":"img/logos-herramientas/ill.png"},
 	        {"nombre":"Illustator","foto":"img/logos-herramientas/ill.png"},
 	        {"nombre":"Illustator","foto":"img/logos-herramientas/ill.png"},
-	        {"nombre":"ligthroom","foto":"img/logos-herramientas/lgt.png"},
-	        {"nombre":"photoshop","foto":"img/logos-herramientas/pht.png"},
-	        {"nombre":"figma","foto":"img/logos-herramientas/figma.png"}
+	        {"nombre":"Illustator","foto":"img/logos-herramientas/ill.png"}
+	     
 	    ] 
 	
 	    $scope.avanzarHerramientasTrabajo = function(adelante)
@@ -1020,6 +1083,145 @@ app.controller('ctl', function ($scope)
           $scope.urlGW = $scope.urlGWQA;
     }
     
+    
+    $(document).ready(function()
+    {
+          // 1 - LISTENER DE RESIZE EVENT:
+          $scope.xl = false;
+          $scope.lg = false;
+          $scope.md = false;
+          $scope.sm = false;
+          $scope.xs = true;
+    
+          console.log("JQuery ready");
+          $scope.resize();
+    
+          $(window).on('resize', function()
+          {
+                $scope.resize();
+          });
+          $('.toast').toast({ "delay": 2500, "autohide": true, "animation": true })
+    });   
+    
+    $scope.SIZEANT = 0;
+    $scope.SIZEX = "LG";
+    $scope.resize = function()
+    {
+          var win = $(window); //this = window
+          ancho = win.innerWidth();
+          // console.log("RESIZE: " + ancho);
+          
+          if(ancho < $scope.anchoMinimoWEB)
+          {
+                console.log("ANCHO MINIMO :" + $scope.anchoMinimoWEB + " | " + ancho);
+          }
+          
+          if (ancho > 1200) 
+          {
+                $scope.xl = true;
+                $scope.lg = false;
+                $scope.md = false;
+                $scope.sm = false;
+                $scope.xs = false;
+                $scope.SIZEANT = $scope.SIZEX;
+                $scope.SIZEX = "XL";
+    
+                $scope.$evalAsync();
+    
+                if($scope.verbose)
+                {
+                      console.log("ENTRE XL! " + $scope.SIZEX);
+                }
+          }
+          else if(ancho < 1200 && ancho > 992)
+          {
+                $scope.xl = false;
+                $scope.lg = true;
+                $scope.md = false;
+                $scope.sm = false;
+                $scope.xs = false;
+                $scope.SIZEANT = $scope.SIZEX;
+                $scope.SIZEX = "LG";
+    
+                $scope.$evalAsync();
+    
+                if($scope.verbose)
+                {
+                      console.log("ENTRE LG! " + $scope.SIZEX);
+                }
+          }
+          else if(ancho < 992 && ancho > 768)
+          {
+                $scope.xl = false;
+                $scope.lg = false;
+                $scope.md = true;
+                $scope.sm = false;
+                $scope.xs = false;
+                $scope.SIZEANT = $scope.SIZEX;
+                $scope.SIZEX = "MD";
+    
+                $scope.$evalAsync();
+    
+                if($scope.verbose)
+                {
+                      console.log("ENTRE MD! "  + $scope.SIZEX);
+                }
+          }
+          else if(ancho < 768 && ancho > 576)
+          {
+                $scope.xl = false;
+                $scope.lg = false;
+                $scope.md = false;
+                $scope.sm = true;
+                $scope.xs = false;
+                $scope.SIZEANT = $scope.SIZEX;
+                $scope.SIZEX = "SM";
+    
+                $scope.$evalAsync();
+    
+                if($scope.verbose)
+                {
+                      console.log("ENTRE SM! "  + $scope.SIZEX);
+                }
+          }
+          else if ( ancho < 576)
+          {
+                $scope.xl = false;
+                $scope.lg = false;
+                $scope.md = false;
+                $scope.sm = false;
+                $scope.xs = true;
+                $scope.SIZEANT = $scope.SIZEX;
+                $scope.SIZEX = "XS";
+    
+                $scope.$evalAsync();
+    
+                if($scope.verbose)
+                {
+                      console.log("ENTRE XS! " + $scope.SIZEX);
+                }
+          }
+          
+          
+          if($scope.xs || $scope.sm || $scope.md)
+          {
+                $scope.mostrarBusqueda = false;
+          }
+                
+          $scope.ancho = ancho;
+          $scope.$evalAsync();
+    
+          if($scope.SIZEANT != $scope.SIZEX)
+          {
+                console.log("RESIZE ancho:" + ancho + " | TAMANO: " + $scope.SIZEX );
+          }
+    
+          $scope.openNewTab = function(direccion)
+          {
+                window.open(direccion,'_blank');
+          }
+          
+    }
     
 })
 ;

@@ -1,5 +1,6 @@
 <!-- IMAGEN NOMBRE PORTAFOLIO -->
-<div class="contenedor-logo-portafolio sin-padding flex-center-v flex-center ">
+<div class="contenedor-logo-portafolio sin-padding flex-center-v flex-center "
+      id="portafolio">
       <div class="titulo-portafolio-img flex-center-v flex-center-h flex-center flex pt-3 pb-3">
           <img src="./img/portafolio.png" class="img-portafolio">
       </div>
@@ -15,11 +16,18 @@
 
 
       <!-- FLECHA IZQUIERDA -->
-      <div class="flecha-galeria  flecha-izq-galeria  flex-center-v flex-center" ng-click="avanzarGaleria(false)">
+      <div class="flecha-galeria  flecha-izq-galeria  flex-center-v flex-center "
+       ng-click="avanzarGaleria(false)"
+       ng-hide="xs || sm"
+       >
             <i class="fa-solid fa-chevron-left"></i>
       </div>
+
+
       <!-- ITEMS GALERIA -->
-      <div class="cont-items-galeria flex" id="galeria">
+      <div class="cont-items-galeria flex "
+      ng-class="{'true':'ancho-100','false':'ancho-dinamico'}[xs || sm ]" 
+      id="galeria">
             <div class="separador-item-galeria" ng-repeat="itemLoop in arrGaleria">
                   <div class="item-galeria" ng-click="abrirItemGaleria(itemLoop)">
                         <div class="img-item-galeria" style="background-image: url('{{itemLoop.foto}}')">
@@ -38,7 +46,9 @@
       </div>
 
       <!-- FLECHA DERECHA -->
-      <div class="flecha-galeria flecha-der-galeria  flex-center-v flex-center" ng-click="avanzarGaleria(true)">
+      <div class="flecha-galeria flecha-der-galeria  flex-center-v flex-center" 
+      ng-click="avanzarGaleria(true)"
+      ng-hide="xs || sm">
             <i class="fa-solid fa-chevron-right"></i>
       </div>
 </div>
@@ -54,6 +64,7 @@
             height: 80px;
             width: 100%;
             /* border: solid 1px blue;     */
+            padding-top: 90px;
       }
       .titulo-portafolio-img{
             height: 100%;
@@ -69,13 +80,12 @@
 
       .contenedor-galeria {
             /* border: solid 1px blue; */
-            height: 500px;
-            padding-top: 20px;
+            /* height: 500px; */
+            padding-top: 90px;
             
       }
 
       .cont-items-galeria {
-            width: calc(100% - 100px);
             background-color: white;
 
             overflow-x: scroll;
@@ -85,6 +95,14 @@
             padding-left: 45px;
 
             
+      }
+      .ancho-dinamico
+      {
+            width: calc(100% - 100px);
+      }
+      .ancho-100
+      {
+            width: 100% ;
       }
 
       .separador-item-galeria {
@@ -190,13 +208,7 @@
             { "nombre": "", "foto": "./img/foto-portafolio/noncello.png", "pdf": "./pdfs/noncello.pdf", "texto": "jasdjfklañsdfklajsdklf" },
             { "nombre": "Easy Veggie", "foto": "./img/foto-portafolio/easyveggie.png", "pdf": "./pdfs/easy-veggie.pdf", "texto": "jasdjfklañsdfklajsdklf" },
             { "nombre": "Manual de Marca", "foto": "./img/foto-portafolio/manualvilche.png", "pdf": "./pdfs/manual-vilche.pdf", "texto": "" },
-            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
-            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
-            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
-            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
-            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
-            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
-            { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
+            { "nombre": "Manual de Marca", "foto": "./img/foto-portafolio/lowther.png", "pdf": "./pdfs/lowther.pdf", "texto": "cvv" },
             { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" },
             { "nombre": "Pepito", "foto": "./img/paisaje.jpg", "pdf": "./pdfs/Allianz Cheat Sheet_Edit V8.pdf", "texto": "jasdjfklañsdfklajsdklf" }
       ]

@@ -1,12 +1,12 @@
 <!-- CONTENEDOR DE IMAGEN TEXTO HERRAMIENTAS -->
-<div class="contenedor-img-herramientas col-12 sin-padding flex-center-v flex-center">
+<div class="contenedor-img-herramientas col-12 sin-padding flex-center-v flex-center"
+    id="herramientas">
     <div class="titulo-herramientas-img flex-center-v flex-center-h flex-center flex">
         <img src="./img/herramientas.png" class="img-herramientas">
     </div>
 </div>
 
 
-Coleccion:{{arrHerramientas.length}}
 <div class="contenedor-de-todo">
 
     <div class="cont-herramientas-trabajo  col-12 sin-padding flex" 
@@ -139,17 +139,20 @@ Coleccion:{{arrHerramientas.length}}
 
 
 .real-foto-item-herramientas{
+   
     height: 100px;
     width: 100px;
     padding: 20px;
     /* border:solid 1px yellow; */
     border-radius: 50%;
     background-origin: content-box;
+    
 
     /* CENTRAR IMG EN UN DIV - APARECE */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    
 
 }
 
@@ -158,12 +161,15 @@ Coleccion:{{arrHerramientas.length}}
 }
 .item-herramientas-trabajos
 {
-    height: 150px;
-    width: 150px;
+    height: 130px;
+    width: 130px;
     margin-right: 15px;
     cursor: pointer; 
+    
     /* border: solid 1px blue; */
     /* padding-left: 15px; */
+    
+    
 }
 
 .flecha-gal {
@@ -177,7 +183,8 @@ Coleccion:{{arrHerramientas.length}}
 .contenedor-img-herramientas{
     height: 80px;
     /* border: solid 1px blue; */
-    padding-top: 80px;
+    padding-top: 120px;
+   
     
     
 }
@@ -215,9 +222,8 @@ Coleccion:{{arrHerramientas.length}}
         {"nombre":"Illustator","foto":"img/logos-herramientas/ill.png"},
         {"nombre":"Illustator","foto":"img/logos-herramientas/ill.png"},
         {"nombre":"Illustator","foto":"img/logos-herramientas/ill.png"},
-        {"nombre":"ligthroom","foto":"img/logos-herramientas/lgt.png"},
-        {"nombre":"photoshop","foto":"img/logos-herramientas/pht.png"},
-        {"nombre":"figma","foto":"img/logos-herramientas/figma.png"}
+        {"nombre":"Illustator","foto":"img/logos-herramientas/ill.png"}
+     
     ] 
 
     $scope.avanzarHerramientasTrabajo = function(adelante)
